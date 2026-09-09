@@ -4,10 +4,10 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { ImageCarousel } from "@/components/ui/image-carousel";
 
 const ROOM_ICONS = ["🧩", "💬", "💙"] as const;
-const ROOM_ACCENTS = [
-  "var(--color-spectrum-blue)",
-  "var(--color-spectrum-teal)",
-  "var(--color-spectrum-purple)",
+const ROOM_GRADIENTS = [
+  "linear-gradient(135deg, #05acec, #8b5cf6)",
+  "linear-gradient(135deg, #abcf36, #05acec)",
+  "linear-gradient(135deg, #f7941d, #e00e1e)",
 ];
 
 export function Project() {
@@ -24,15 +24,19 @@ export function Project() {
         <ImageCarousel slides={project.renders} />
       </Reveal>
 
-      <RevealGroup className="mt-14 grid gap-x-10 gap-y-8 sm:grid-cols-3">
+      <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-3">
         {project.rooms.map((room, i) => (
-          <RevealItem key={room.name}>
-            <div className="border-t-2 pt-5" style={{ borderColor: ROOM_ACCENTS[i % ROOM_ACCENTS.length] }}>
-              <span aria-hidden="true" className="text-3xl">
+          <RevealItem key={room.name} className="h-full">
+            <div className="group h-full rounded-3xl border border-card-border bg-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+              <span
+                aria-hidden="true"
+                className="flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-lg transition-transform duration-300 group-hover:scale-110"
+                style={{ background: ROOM_GRADIENTS[i % ROOM_GRADIENTS.length] }}
+              >
                 {ROOM_ICONS[i % ROOM_ICONS.length]}
               </span>
-              <h3 className="font-display mt-3 text-2xl font-black">{room.name}</h3>
-              <p className="mt-2 text-pretty text-muted-foreground">{room.description}</p>
+              <h3 className="font-display mt-5 text-2xl font-black">{room.name}</h3>
+              <p className="mt-2.5 text-pretty text-muted-foreground">{room.description}</p>
             </div>
           </RevealItem>
         ))}

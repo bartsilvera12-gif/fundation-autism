@@ -36,27 +36,52 @@ export function Gallery() {
           </p>
         </Reveal>
 
-        {/* Tabs por año */}
+        {/* Selector de año */}
         <Reveal className="mt-8">
-          <div role="tablist" aria-label="Filtrar galería por año" className="inline-flex gap-1 rounded-full border border-border bg-surface p-1">
-            {galleryGroups.map((g, i) => (
-              <button
-                key={g.year}
-                role="tab"
-                aria-selected={i === active}
-                onClick={() => setActive(i)}
-                className={`relative rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-                  i === active ? "text-white" : "text-foreground/70 hover:text-brand-600"
-                }`}
-              >
-                {i === active && (
-                  <motion.span layoutId="gallery-tab" className="absolute inset-0 -z-10 rounded-full bg-brand-500" transition={{ type: "spring", stiffness: 300, damping: 30 }} />
-                )}
-                {g.year}
-                <span className="ml-1.5 hidden text-xs font-normal opacity-80 sm:inline">· {g.label}</span>
-              </button>
-            ))}
-          </div>
+          {galleryGroups.length === 1 ? (
+            // Un solo año: etiqueta elegante, sin botón
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground/80">
+              <span
+                aria-hidden="true"
+                className="h-2.5 w-2.5 rounded-full"
+                style={{ background: "var(--gradient-spectrum)" }}
+              />
+              Edición {galleryGroups[0].year}
+              <span className="font-normal text-muted-foreground">· {galleryGroups[0].label}</span>
+            </div>
+          ) : (
+            // Varios años: selector editorial con subrayado del espectro
+            <div
+              role="tablist"
+              aria-label="Filtrar galería por año"
+              className="flex flex-wrap items-end gap-x-8 gap-y-2 border-b border-border"
+            >
+              {galleryGroups.map((g, i) => (
+                <button
+                  key={g.year}
+                  role="tab"
+                  aria-selected={i === active}
+                  onClick={() => setActive(i)}
+                  className={`relative -mb-px pb-3 text-lg font-bold transition-colors sm:text-xl ${
+                    i === active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {g.year}
+                  <span className="ml-2 hidden text-sm font-normal text-muted-foreground sm:inline">
+                    {g.label}
+                  </span>
+                  {i === active && (
+                    <motion.span
+                      layoutId="gallery-underline"
+                      className="absolute inset-x-0 bottom-0 h-[3px] rounded-full"
+                      style={{ background: "var(--gradient-spectrum)" }}
+                      transition={{ type: "spring", stiffness: 320, damping: 32 }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
+          )}
         </Reveal>
       </div>
 

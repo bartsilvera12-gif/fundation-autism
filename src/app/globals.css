@@ -19,18 +19,18 @@
   --color-brand-800: #142f6f;
   --color-brand-900: #101f47;
 
-  /* Espectro neurodiversidad (infinito arcoíris) — usar con moderación */
-  --color-spectrum-red: #e4572e;
-  --color-spectrum-orange: #f4a020;
-  --color-spectrum-yellow: #f6c544;
-  --color-spectrum-green: #3fa34d;
-  --color-spectrum-teal: #17b0a7;
-  --color-spectrum-blue: #2b6ef2;
-  --color-spectrum-purple: #7a5af5;
+  /* Espectro de neurodiversidad — colores vivos de la marca (corazón rompecabezas) */
+  --color-spectrum-red: #e00e1e;
+  --color-spectrum-orange: #f7941d;
+  --color-spectrum-yellow: #f9d70f;
+  --color-spectrum-green: #abcf36;
+  --color-spectrum-teal: #05acec;
+  --color-spectrum-blue: #1f8fd6;
+  --color-spectrum-purple: #8b5cf6;
 
-  /* Neutros cálidos */
-  --color-cream: #faf9f6;
-  --color-ink: #182234;
+  /* Neutros cálidos (cremita) */
+  --color-cream: #fdf8ee;
+  --color-ink: #2a2118;
 
   /* Radios generosos */
   --radius-xl: 1rem;
@@ -62,17 +62,17 @@
 /*  Semantic surface tokens (flip in dark mode)                        */
 /* ------------------------------------------------------------------ */
 :root {
-  --background: #faf9f6;
-  --surface: #ffffff;
-  --surface-muted: #f1f4fb;
-  --foreground: #182234;
-  --muted-foreground: #4d5a70;
-  --border: #e3e8f2;
-  --card: #ffffff;
-  --card-border: #e7ecf5;
-  --glass: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --ring: #2b6ef2;
+  --background: #fdf8ee;
+  --surface: #fffdf7;
+  --surface-muted: #f7efdf;
+  --foreground: #2a2118;
+  --muted-foreground: #6b6152;
+  --border: #ece1cd;
+  --card: #fffdf7;
+  --card-border: #efe5d3;
+  --glass: rgba(253, 248, 238, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --ring: #05acec;
   color-scheme: light;
 }
 

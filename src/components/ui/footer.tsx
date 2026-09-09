@@ -1,4 +1,5 @@
-import { nav, site } from "@/content/site";
+import Image from "next/image";
+import { site } from "@/content/site";
 import { BrandMark } from "./brand-mark";
 import { InstagramIcon, TiktokIcon, WhatsappIcon } from "./icons";
 
@@ -11,27 +12,11 @@ export function Footer() {
         className="h-1 w-full"
         style={{ background: "var(--gradient-spectrum)" }}
       />
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-3">
         <div className="space-y-4 sm:col-span-2 lg:col-span-1">
           <BrandMark />
           <p className="max-w-xs text-sm text-muted-foreground">{site.tagline}</p>
         </div>
-
-        <nav aria-label="Secciones" className="space-y-3">
-          <h3 className="text-sm font-semibold text-foreground">Secciones</h3>
-          <ul className="space-y-2">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-brand-600"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-foreground">Contacto</h3>
@@ -71,8 +56,28 @@ export function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <p className="mx-auto max-w-6xl px-5 py-6 text-center text-sm text-muted-foreground">
-          {site.footer}
+        <p className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-1.5 px-5 py-6 text-center text-sm text-muted-foreground">
+          <span>{site.footer} ·</span>
+          <span className="inline-flex items-center gap-1.5">
+            {site.credit.madeWith}
+            <Image
+              src="/images/brand/logo.svg"
+              alt=""
+              aria-hidden="true"
+              width={18}
+              height={13}
+              className="inline-block h-4 w-auto"
+            />
+            por
+            <a
+              href={site.credit.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-foreground transition-colors hover:text-brand-600 hover:underline"
+            >
+              {site.credit.by}
+            </a>
+          </span>
         </p>
       </div>
     </footer>

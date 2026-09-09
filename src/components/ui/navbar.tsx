@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { nav, site } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { BrandMark } from "./brand-mark";
@@ -10,6 +11,11 @@ import { WhatsappIcon } from "./icons";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Solo hay hero oscuro detrás en la portada; ahí el navbar va claro arriba.
+  const isHome = pathname === "/";
+  const overHero = isHome && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -37,9 +43,9 @@ export function Navbar() {
         aria-label="Navegación principal"
         className={cn(
           "mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full px-4 transition-all duration-300 sm:px-5",
-          scrolled
-            ? "glass py-2 text-foreground shadow-[0_8px_30px_rgba(20,47,111,0.08)]"
-            : "border border-transparent py-2.5 text-white",
+          overHero
+            ? "border border-transparent py-2.5 text-white"
+            : "border border-border bg-surface py-2 text-foreground shadow-[0_8px_30px_rgba(20,47,111,0.10)]",
         )}
       >
         <a href="#top" className="rounded-full" aria-label={`${site.shortName} — inicio`}>
@@ -54,9 +60,9 @@ export function Navbar() {
                 href={item.href}
                 className={cn(
                   "rounded-full px-3 py-2 text-sm font-medium transition-colors",
-                  scrolled
-                    ? "text-foreground/75 hover:bg-surface-muted hover:text-brand-600"
-                    : "text-white/85 hover:bg-white/10 hover:text-white",
+                  overHero
+                    ? "text-white/85 hover:bg-white/10 hover:text-white"
+                    : "text-foreground/75 hover:bg-surface-muted hover:text-brand-600",
                 )}
               >
                 {item.label}
@@ -98,7 +104,7 @@ export function Navbar() {
         className="lg:hidden"
       >
         <div className="mx-auto mt-2 max-w-6xl px-4">
-          <ul className="glass flex flex-col gap-1 rounded-3xl p-3 shadow-lg">
+          <ul className="flex flex-col gap-1 rounded-3xl border border-border bg-surface p-3 shadow-xl">
             {nav.map((item) => (
               <li key={item.href}>
                 <a

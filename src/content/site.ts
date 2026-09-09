@@ -29,7 +29,12 @@ export const site = {
       href: "https://tiktok.com/@atypical_py",
     },
   },
-  footer: "© 2026 Fundación ATYPICAL Py · Neurodiversidad · Hecho con 💙",
+  footer: "© 2026 Fundación ATYPICAL Py · Neurodiversidad",
+  credit: {
+    madeWith: "Hecho con",
+    by: "Neura",
+    href: "https://neura.com.py",
+  },
 } as const;
 
 export type NavLink = { label: string; href: string };
@@ -69,6 +74,32 @@ export const about = {
     label: "de la población tiene un desarrollo neurológico diferente",
   },
   conditions: ["TEA", "TDAH", "Dislexia", "Ansiedad", "Apraxia"],
+  highlights: [
+    {
+      emoji: "🧠",
+      title: "15-20% de la población",
+      text: "Tiene un desarrollo neurológico diferente al esperado.",
+      color: "var(--color-spectrum-red)",
+    },
+    {
+      emoji: "🧩",
+      title: "TEA, TDAH, Apraxia, Dislexia",
+      text: "Condiciones que forman parte de la neurodivergencia.",
+      color: "var(--color-spectrum-teal)",
+    },
+    {
+      emoji: "📚",
+      title: "Educación inclusiva",
+      text: "Cada niño merece recibir la educación que necesita.",
+      color: "var(--color-spectrum-green)",
+    },
+    {
+      emoji: "💛",
+      title: "Comunidad y empatía",
+      text: "Neurotípicos y neurodivergentes juntos conformamos la neurodiversidad.",
+      color: "var(--color-spectrum-purple)",
+    },
+  ],
 } as const;
 
 export type Concept = { term: string; definition: string };

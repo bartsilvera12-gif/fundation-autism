@@ -18,7 +18,7 @@ export function Objectives() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <Section id={objectives.id} className="bg-background" containerClassName="max-w-6xl">
+    <Section id={objectives.id} className="bg-background" containerClassName="max-w-6xl" ambient="c">
       <Reveal>
         <span className="text-sm font-bold uppercase tracking-[0.22em] text-brand-500">
           Hacia dónde vamos

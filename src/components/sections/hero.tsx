@@ -33,8 +33,8 @@ export function Hero() {
       {!reduced && (
         <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-90">
           <Aurora
-            colorStops={["#2b6ef2", "#7a5af5", "#17b0a7"]}
-            amplitude={1.1}
+            colorStops={["#05acec", "#8b5cf6", "#f7941d"]}
+            amplitude={1.15}
             blend={0.5}
             speed={0.5}
           />
@@ -44,16 +44,16 @@ export function Hero() {
       {/* Orbes de color flotando */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
         <div
-          className={`absolute -left-16 top-24 h-72 w-72 rounded-full opacity-40 blur-3xl ${reduced ? "" : "float-orb"}`}
-          style={{ background: "radial-gradient(circle, #7a5af5, transparent 70%)" }}
+          className={`absolute -left-16 top-24 h-72 w-72 rounded-full opacity-35 blur-3xl ${reduced ? "" : "float-orb"}`}
+          style={{ background: "radial-gradient(circle, #e00e1e, transparent 70%)" }}
         />
         <div
           className={`absolute right-[-4rem] top-10 h-80 w-80 rounded-full opacity-35 blur-3xl ${reduced ? "" : "float-orb-slow"}`}
-          style={{ background: "radial-gradient(circle, #17b0a7, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #05acec, transparent 70%)" }}
         />
         <div
           className={`absolute bottom-40 left-1/3 h-64 w-64 rounded-full opacity-30 blur-3xl ${reduced ? "" : "float-orb"}`}
-          style={{ background: "radial-gradient(circle, #f4a020, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #abcf36, transparent 70%)" }}
         />
       </div>
 

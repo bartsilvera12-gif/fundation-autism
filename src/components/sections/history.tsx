@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 
 export function History() {
   return (
-    <Section id={history.id} className="bg-background" containerClassName="max-w-6xl">
+    <Section id={history.id} className="bg-background" containerClassName="max-w-6xl" ambient="b">
       <SectionHeading
         kicker="De dónde venimos"
         title={<span className="font-display font-black">{history.title}</span>}
@@ -44,9 +44,6 @@ export function History() {
                       />
                     </Parallax>
                   )}
-                  <span className="font-display absolute bottom-4 left-5 text-6xl font-black text-white drop-shadow-lg">
-                    0{i + 1}
-                  </span>
                 </div>
               </Reveal>
 

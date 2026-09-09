@@ -13,7 +13,7 @@ const ACCENTS = [
 
 export function Concepts() {
   return (
-    <Section id={concepts.id} className="bg-surface-muted" containerClassName="max-w-6xl">
+    <Section id={concepts.id} className="bg-surface-muted" containerClassName="max-w-6xl" ambient="b">
       <SectionHeading
         kicker="Para entendernos"
         title={<span className="font-display font-black">{concepts.title}</span>}

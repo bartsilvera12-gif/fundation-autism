@@ -1,22 +1,31 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Reveal } from "./reveal";
+import { SectionAmbient } from "./section-ambient";
 
 type SectionProps = {
   id?: string;
   children: ReactNode;
   className?: string;
   containerClassName?: string;
+  ambient?: "a" | "b" | "c" | false;
 };
 
-/** Contenedor de sección con espaciado y ancla consistentes. */
-export function Section({ id, children, className, containerClassName }: SectionProps) {
+/** Contenedor de sección con espaciado, ancla y fondo con vida. */
+export function Section({
+  id,
+  children,
+  className,
+  containerClassName,
+  ambient = "a",
+}: SectionProps) {
   return (
     <section
       id={id}
-      className={cn("scroll-mt-24 px-5 py-20 sm:py-28", className)}
+      className={cn("relative scroll-mt-24 overflow-hidden px-5 py-20 sm:py-28", className)}
     >
-      <div className={cn("mx-auto w-full max-w-6xl", containerClassName)}>
+      {ambient && <SectionAmbient variant={ambient} />}
+      <div className={cn("relative mx-auto w-full max-w-6xl", containerClassName)}>
         {children}
       </div>
     </section>
