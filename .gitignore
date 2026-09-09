@@ -13,6 +13,7 @@ next-env.d.ts
 
 # deploy artifacts
 *.zip
+/dist
 
 # misc
 .DS_Store

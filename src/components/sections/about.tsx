@@ -10,6 +10,13 @@ import { Parallax } from "@/components/ui/parallax";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { photoAt } from "@/lib/photos";
 
+const HL_GRADIENTS = [
+  "linear-gradient(135deg, #e00e1e, #f7941d)",
+  "linear-gradient(135deg, #05acec, #1f8fd6)",
+  "linear-gradient(135deg, #abcf36, #05acec)",
+  "linear-gradient(135deg, #8b5cf6, #e00e1e)",
+];
+
 export function About() {
   const reduced = usePrefersReducedMotion();
   const pA = photoAt(45);
@@ -108,18 +115,19 @@ export function About() {
         </Reveal>
       </div>
 
-      {/* Datos clave — fila multicolor */}
-      <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {about.highlights.map((h) => (
-          <RevealItem key={h.title} className="h-full">
-            <div
-              className="h-full rounded-2xl border border-card-border bg-card p-6 shadow-sm"
-              style={{ borderTop: `4px solid ${h.color}` }}
-            >
-              <span aria-hidden="true" className="text-3xl">
+      {/* Datos clave — tira editorial (sin cajas), separada por líneas */}
+      <RevealGroup className="mt-16 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        {about.highlights.map((h, i) => (
+          <RevealItem key={h.title}>
+            <div className={cn(i > 0 && "lg:border-l lg:border-border lg:pl-10")}>
+              <span
+                aria-hidden="true"
+                className="flex h-12 w-12 items-center justify-center rounded-2xl text-2xl shadow-md"
+                style={{ background: HL_GRADIENTS[i % HL_GRADIENTS.length] }}
+              >
                 {h.emoji}
               </span>
-              <h3 className={cn("mt-3 text-lg font-extrabold leading-tight")}>{h.title}</h3>
+              <p className="font-display mt-4 text-xl font-black leading-tight">{h.title}</p>
               <p className="mt-1.5 text-pretty text-muted-foreground">{h.text}</p>
             </div>
           </RevealItem>

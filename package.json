@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "manifest": "node scripts/generate-manifest.mjs"
+    "manifest": "node scripts/generate-manifest.mjs",
+    "build:hostinger": "next build && node scripts/export-dist.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
