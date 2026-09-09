@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* Dark mode driven by next-themes (attribute="class") */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens                                                      */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* Brand blue — "azul confianza" */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #d9e6ff;
+  --color-brand-200: #bcd3ff;
+  --color-brand-300: #8fb6fb;
+  --color-brand-400: #5b92f7;
+  --color-brand-500: #2b6ef2;
+  --color-brand-600: #1e56c9;
+  --color-brand-700: #163f97;
+  --color-brand-800: #142f6f;
+  --color-brand-900: #101f47;
+
+  /* Espectro neurodiversidad (infinito arcoíris) — usar con moderación */
+  --color-spectrum-red: #e4572e;
+  --color-spectrum-orange: #f4a020;
+  --color-spectrum-yellow: #f6c544;
+  --color-spectrum-green: #3fa34d;
+  --color-spectrum-teal: #17b0a7;
+  --color-spectrum-blue: #2b6ef2;
+  --color-spectrum-purple: #7a5af5;
+
+  /* Neutros cálidos */
+  --color-cream: #faf9f6;
+  --color-ink: #182234;
+
+  /* Radios generosos */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+
+  /* Tipografías — fallbacks estáticos (las reales entran por next/font en @layer base).
+     Nota: Tailwind v4 descarta tokens --font-* que contienen var(), así que acá van
+     solo los fallbacks y las fuentes reales se aplican en body/.font-display. */
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+
+  /* Easing suave y humano */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Gradiente de acento del espectro */
+  --gradient-spectrum: linear-gradient(
+    90deg,
+    var(--color-spectrum-red),
+    var(--color-spectrum-orange),
+    var(--color-spectrum-yellow),
+    var(--color-spectrum-green),
+    var(--color-spectrum-teal),
+    var(--color-spectrum-blue),
+    var(--color-spectrum-purple)
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Semantic surface tokens (flip in dark mode)                        */
+/* ------------------------------------------------------------------ */
+:root {
+  --background: #faf9f6;
+  --surface: #ffffff;
+  --surface-muted: #f1f4fb;
+  --foreground: #182234;
+  --muted-foreground: #4d5a70;
+  --border: #e3e8f2;
+  --card: #ffffff;
+  --card-border: #e7ecf5;
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --ring: #2b6ef2;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0e1524;
+  --surface: #151d30;
+  --surface-muted: #1a2440;
+  --foreground: #eef2fb;
+  --muted-foreground: #a4b1c9;
+  --border: #253150;
+  --card: #131b2d;
+  --card-border: #263453;
+  --glass: rgba(19, 27, 45, 0.72);
+  --glass-border: rgba(90, 120, 180, 0.22);
+  --ring: #5b92f7;
+  color-scheme: dark;
+}
+
+/* Map semantic tokens into Tailwind's color space */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-ring: var(--ring);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-jakarta), var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
+    font-optical-sizing: auto;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Focus visible — accesibilidad AA */
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--color-brand-500);
+    color: #fff;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+@utility text-gradient-spectrum {
+  background: var(--gradient-spectrum);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@utility glass {
+  background: var(--glass);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Scroll-reveal inicial (JS remueve .is-visible-off) */
+@utility reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Reveal de titular palabra por palabra (CSS, siempre completa) */
+.word-rise {
+  display: inline-block;
+  animation: word-rise 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes word-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Orbes de color flotando (hero) — lento y calmo */
+@keyframes float-orb {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -28px, 0) scale(1.06);
+  }
+}
+.float-orb {
+  animation: float-orb 12s ease-in-out infinite;
+}
+.float-orb-slow {
+  animation: float-orb 18s ease-in-out infinite;
+}
+
+/* Marquee de fotos */
+.marquee-track {
+  animation: atypical-marquee var(--marquee-duration, 60s) linear infinite;
+  will-change: transform;
+}
+.group:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes atypical-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion — obligatorio en todo el sitio                      */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
