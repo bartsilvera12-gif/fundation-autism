@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { project } from "@/content/site";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
@@ -23,6 +24,32 @@ export function Project() {
       <Reveal>
         <ImageCarousel slides={project.renders} />
       </Reveal>
+
+      {/* Planos arquitectónicos */}
+      <Reveal className="mt-14">
+        <h3 className="font-display text-2xl font-black">Los planos</h3>
+        <p className="mt-1 text-muted-foreground">La propuesta arquitectónica del centro.</p>
+      </Reveal>
+      <RevealGroup className="mt-6 grid gap-6 md:grid-cols-2">
+        {project.plans.map((plan) => (
+          <RevealItem key={plan.src}>
+            <figure className="overflow-hidden rounded-3xl border border-card-border bg-white shadow-sm">
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={plan.src}
+                  alt={plan.alt}
+                  fill
+                  sizes="(max-width: 768px) 90vw, 45vw"
+                  className="object-contain p-3"
+                />
+              </div>
+              <figcaption className="border-t border-card-border px-5 py-3 text-sm font-semibold text-foreground/80">
+                {plan.label}
+              </figcaption>
+            </figure>
+          </RevealItem>
+        ))}
+      </RevealGroup>
 
       <RevealGroup className="mt-14 grid gap-6 sm:grid-cols-3">
         {project.rooms.map((room, i) => (

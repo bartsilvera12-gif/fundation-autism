@@ -269,6 +269,7 @@ export const project: {
   title: string;
   lead: string;
   renders: ProjectRender[];
+  plans: ProjectRender[];
   rooms: ConsultingRoom[];
 } = {
   id: "proyecto",
@@ -276,19 +277,41 @@ export const project: {
   lead: "Un espacio propio, pensado con y para las familias, con un equipo multidisciplinario que acompaña a cada niño en su desarrollo.",
   renders: [
     {
-      src: "/images/proyecto/render-frontal.webp",
-      alt: "Render arquitectónico de la vista frontal del centro de desarrollo integral",
-      label: "Vista frontal",
+      src: "/images/proyecto/render-terapia.webp",
+      alt: "Render de la sala de terapia del centro, con un espacio de juego colorido donde una profesional acompaña a un niño",
+      label: "Sala de terapia",
     },
     {
-      src: "/images/proyecto/render-lateral.webp",
-      alt: "Render arquitectónico de la vista lateral del centro de desarrollo integral",
-      label: "Vista lateral",
+      src: "/images/proyecto/render-sensorial.webp",
+      alt: "Render de la sala de integración sensorial, con columpios, colchonetas y elementos de motricidad",
+      label: "Integración sensorial",
     },
     {
-      src: "/images/proyecto/render-panoramica.webp",
-      alt: "Render arquitectónico de la vista panorámica del centro de desarrollo integral",
-      label: "Vista panorámica",
+      src: "/images/proyecto/render-consultorio.webp",
+      alt: "Render de un consultorio con pizarra, estanterías y materiales para el trabajo con niños",
+      label: "Consultorio",
+    },
+    {
+      src: "/images/proyecto/render-lectura.webp",
+      alt: "Render del rincón de lectura, con estanterías arqueadas de colores y cojines",
+      label: "Rincón de lectura",
+    },
+    {
+      src: "/images/proyecto/render-materiales.webp",
+      alt: "Render de la sala de materiales, con estanterías coloridas y mesa de trabajo",
+      label: "Sala de materiales",
+    },
+  ],
+  plans: [
+    {
+      src: "/images/proyecto/plano-predio.webp",
+      alt: "Planta del predio del centro de desarrollo integral, con la ubicación del edificio",
+      label: "Planta del predio",
+    },
+    {
+      src: "/images/proyecto/plano-arquitectonico.webp",
+      alt: "Planta arquitectónica del centro, con la distribución de los consultorios y espacios",
+      label: "Planta arquitectónica",
     },
   ],
   rooms: [
