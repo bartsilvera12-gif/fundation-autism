@@ -3,6 +3,7 @@ import { About } from "@/components/sections/about";
 import { Concepts } from "@/components/sections/concepts";
 import { MissionVision } from "@/components/sections/mission-vision";
 import { Objectives } from "@/components/sections/objectives";
+import { Board } from "@/components/sections/board";
 import { History } from "@/components/sections/history";
 import { Project } from "@/components/sections/project";
 import { Events } from "@/components/sections/events";
@@ -18,6 +19,7 @@ export default function Home() {
       <Concepts />
       <MissionVision />
       <Objectives />
+      <Board />
       <History />
       <Project />
       <Events />

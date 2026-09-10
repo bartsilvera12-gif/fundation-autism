@@ -43,6 +43,7 @@ export const nav: NavLink[] = [
   { label: "Sobre Nosotros", href: "#sobre-nosotros" },
   { label: "Misión y Visión", href: "#mision-vision" },
   { label: "Objetivos", href: "#objetivos" },
+  { label: "Comisión", href: "#comision" },
   { label: "Nuestra historia", href: "#historia" },
   { label: "Proyecto", href: "#proyecto" },
   { label: "Eventos", href: "#eventos" },
@@ -258,6 +259,40 @@ export const historyPage: {
         "Ese centro será posible con el apoyo de personas, instituciones y empresas que crean, como nosotros, que la inclusión plena no es una utopía, sino una construcción colectiva. Sumate: juntos podemos hacer la diferencia.",
       ],
     },
+  ],
+};
+
+export type BoardMember = { name: string; role: string; img: string };
+
+export const board: {
+  id: string;
+  kicker: string;
+  title: string;
+  lead: string;
+  president: BoardMember;
+  vice: BoardMember;
+  members: BoardMember[];
+} = {
+  id: "comision",
+  kicker: "Comisión Directiva",
+  title: "Quiénes lideran la fundación",
+  lead: "Un equipo de familias y profesionales comprometidos con la causa de la neurodiversidad.",
+  president: {
+    name: "Carmen Adelaida Portillo Patiño",
+    role: "Presidente",
+    img: "/images/comision/presidente.webp",
+  },
+  vice: {
+    name: "Christian David Viedman",
+    role: "Vicepresidente",
+    img: "/images/comision/vicepresidente.webp",
+  },
+  members: [
+    { name: "David Tomás Vera", role: "Tesorero", img: "/images/comision/tesorero.webp" },
+    { name: "Rocío Echeverría", role: "Protesorera", img: "/images/comision/protesorera.webp" },
+    { name: "Noelia Elizabeth Rojas Ortiz", role: "Secretaria", img: "/images/comision/secretaria.webp" },
+    { name: "Lic. Sergio Javier Morel Morel", role: "Administrador", img: "/images/comision/administrador.webp" },
+    { name: "Nilsa González", role: "Consejera titular", img: "/images/comision/consejera.webp" },
   ],
 };
 

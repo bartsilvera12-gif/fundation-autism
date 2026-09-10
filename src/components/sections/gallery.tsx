@@ -24,8 +24,9 @@ export function Gallery() {
     setLightbox(photos.findIndex((p) => p.src === photo.src));
 
   return (
-    <section id={gallerySection.id} className="scroll-mt-24 overflow-hidden bg-surface-muted py-24 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5">
+    <section id={gallerySection.id} className="relative scroll-mt-24 overflow-hidden bg-surface-muted py-24 sm:py-28">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 mesh-animated" />
+      <div className="relative mx-auto max-w-6xl px-5">
         <Reveal>
           <span className="text-sm font-bold uppercase tracking-[0.22em] text-brand-500">Galería</span>
           <h2 className="font-display mt-2 text-balance text-4xl font-black sm:text-5xl">

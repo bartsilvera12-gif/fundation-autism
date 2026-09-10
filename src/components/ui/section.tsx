@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Reveal } from "./reveal";
-import { SectionAmbient } from "./section-ambient";
 
 type SectionProps = {
   id?: string;
@@ -24,7 +23,9 @@ export function Section({
       id={id}
       className={cn("relative scroll-mt-24 overflow-hidden px-5 py-20 sm:py-28", className)}
     >
-      {ambient && <SectionAmbient variant={ambient} />}
+      {ambient && (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 mesh-animated" />
+      )}
       <div className={cn("relative mx-auto w-full max-w-6xl", containerClassName)}>
         {children}
       </div>
