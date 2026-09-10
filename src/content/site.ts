@@ -44,11 +44,23 @@ export const nav: NavLink[] = [
   { label: "Misión y Visión", href: "#mision-vision" },
   { label: "Objetivos", href: "#objetivos" },
   { label: "Comisión", href: "#comision" },
-  { label: "Nuestra historia", href: "#historia" },
+  { label: "Historia", href: "#historia" },
   { label: "Proyecto", href: "#proyecto" },
   { label: "Eventos", href: "#eventos" },
+  { label: "DIVERtite", href: "#divertite" },
   { label: "Contacto", href: "#contacto" },
 ];
+
+export const divertite = {
+  id: "divertite",
+  kicker: "Nuestro evento más esperado",
+  title: "DIVERtite picoTEAndo 4ª edición",
+  lead: "Una verdadera fiesta familiar por la neurodiversidad. Detrás de cada sonrisa hay una historia que celebramos.",
+  cta: "Conocé a los protagonistas",
+  href: "/divertite-picoteando",
+  galleryTitle: "Ellos son el corazón de DIVERtite picoTEAndo 4ª edición",
+  galleryLead: "Cada niño y cada niña que hace de este evento algo inolvidable.",
+} as const;
 
 export const hero = {
   eyebrow: "Fundación · Neurodiversidad · Paraguay",

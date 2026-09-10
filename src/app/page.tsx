@@ -7,6 +7,7 @@ import { Board } from "@/components/sections/board";
 import { History } from "@/components/sections/history";
 import { Project } from "@/components/sections/project";
 import { Events } from "@/components/sections/events";
+import { Divertite } from "@/components/sections/divertite";
 import { Gallery } from "@/components/sections/gallery";
 import { Quote } from "@/components/sections/quote";
 import { CTA } from "@/components/sections/cta";
@@ -23,6 +24,7 @@ export default function Home() {
       <History />
       <Project />
       <Events />
+      <Divertite />
       <Gallery />
       <Quote />
       <CTA />

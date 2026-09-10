@@ -165,6 +165,15 @@
   color: transparent;
 }
 
+/* Gradiente multicolor legible para titulares (sin amarillo/verde claro) */
+@utility text-gradient-festive {
+  background: linear-gradient(92deg, #e00e1e, #ea580c, #16a34a, #05acec, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 @utility glass {
   background: var(--glass);
   backdrop-filter: saturate(180%) blur(14px);

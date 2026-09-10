@@ -18,5 +18,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.7,
     },
+    {
+      url: `${site.url}/divertite-picoteando`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
   ];
 }
