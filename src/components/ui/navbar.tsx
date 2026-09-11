@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav, site } from "@/content/site";
 import { cn } from "@/lib/cn";
@@ -48,40 +49,36 @@ export function Navbar() {
             : "border border-border bg-surface py-2 text-foreground shadow-[0_8px_30px_rgba(20,47,111,0.10)]",
         )}
       >
-        <a href="#top" className="rounded-full" aria-label={`${site.shortName} — inicio`}>
+        <Link href="/" className="shrink-0 rounded-full" aria-label={`${site.shortName} — inicio`}>
           <BrandMark />
-        </a>
+        </Link>
 
         {/* Links desktop */}
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex">
           {nav.map((item) => (
             <li key={item.href}>
-              <a
+              <Link
                 href={item.href}
                 className={cn(
-                  "rounded-full px-3 py-2 text-sm font-medium transition-colors",
+                  "whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors",
                   overHero
                     ? "text-white/85 hover:bg-white/10 hover:text-white"
                     : "text-foreground/75 hover:bg-surface-muted hover:text-brand-600",
                 )}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <a
-            href={site.whatsapp.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-600 hover:shadow-md sm:inline-flex"
-          >
-            <WhatsappIcon className="h-4 w-4" />
-            Sumate
-          </a>
+          <ThemeToggle
+            className={cn(
+              overHero &&
+                "border-white/30 bg-white/10 text-white hover:bg-white/20",
+            )}
+          />
 
           {/* Botón menú móvil */}
           <button
@@ -107,13 +104,13 @@ export function Navbar() {
           <ul className="flex flex-col gap-1 rounded-3xl border border-border bg-surface p-3 shadow-xl">
             {nav.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className="block rounded-2xl px-4 py-3 text-base font-medium text-foreground/85 transition-colors hover:bg-surface-muted hover:text-brand-600"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li>

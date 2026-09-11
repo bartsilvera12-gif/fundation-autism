@@ -24,7 +24,7 @@ export function Concepts() {
       <RevealGroup className="mt-4">
         {concepts.items.map((item, i) => (
           <RevealItem key={item.term}>
-            <div className="group grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-2 border-t border-border py-8 sm:grid-cols-[5rem_minmax(0,14rem)_1fr] sm:gap-x-8">
+            <div className="group grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-2 border-t border-border py-8 sm:grid-cols-[4rem_max-content_1fr] sm:gap-x-10">
               {/* Índice */}
               <span
                 className="font-display text-3xl font-black tabular-nums transition-colors sm:text-4xl"

@@ -5,7 +5,7 @@ import { InstagramIcon, TiktokIcon, WhatsappIcon } from "./icons";
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 border-t border-border bg-surface">
+    <footer className="relative bg-surface">
       {/* Línea de acento del espectro */}
       <div
         aria-hidden="true"

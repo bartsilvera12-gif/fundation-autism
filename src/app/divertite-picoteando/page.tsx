@@ -22,7 +22,7 @@ export default function DivertitePage() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <Link
-            href="/#divertite"
+            href="/"
             className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-500"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

@@ -39,16 +39,20 @@ export const site = {
 
 export type NavLink = { label: string; href: string };
 
+// Los href usan "/#ancla" (con la barra) para que funcionen también desde
+// las subpáginas (/nuestra-historia, /divertite-picoteando): navegan al home
+// y luego bajan al ancla. Un "#ancla" pelado no funciona fuera del home.
 export const nav: NavLink[] = [
-  { label: "Sobre Nosotros", href: "#sobre-nosotros" },
-  { label: "Misión y Visión", href: "#mision-vision" },
-  { label: "Objetivos", href: "#objetivos" },
-  { label: "Comisión", href: "#comision" },
-  { label: "Historia", href: "#historia" },
-  { label: "Proyecto", href: "#proyecto" },
-  { label: "Eventos", href: "#eventos" },
-  { label: "DIVERtite", href: "#divertite" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Nosotros", href: "/#sobre-nosotros" },
+  { label: "Misión", href: "/#mision-vision" },
+  { label: "Objetivos", href: "/#objetivos" },
+  { label: "Comisión", href: "/comision" },
+  { label: "Historia", href: "/#historia" },
+  { label: "Proyecto", href: "/#proyecto" },
+  { label: "Eventos", href: "/#eventos" },
+  { label: "Actividades", href: "/actividades" },
+  { label: "DIVERtite", href: "/divertite-picoteando" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 export const divertite = {
@@ -425,6 +429,83 @@ export const events: { id: string; title: string; items: EventItem[] } = {
       description:
         "Una corrida que no es solo deportiva: es un espacio para generar conciencia, comunidad y oportunidades.",
       accent: "var(--color-spectrum-red)",
+    },
+  ],
+};
+
+/**
+ * Actividades con inscripción.
+ * Para CARGAR una actividad nueva: copiá un bloque y editá los campos.
+ * La inscripción abre WhatsApp con un mensaje ya redactado (el sitio es
+ * estático, sin backend). Si preferís un formulario propio (Google Forms,
+ * etc.) para alguna actividad, poné su enlace en `formHref` y ese botón
+ * llevará al formulario en vez de a WhatsApp.
+ * `status: "open"` habilita el botón; `"soon"` lo muestra como “Próximamente”;
+ * `"full"` como “Cupos llenos”.
+ */
+export type Activity = {
+  id: string;
+  title: string;
+  description: string;
+  date: string; // ej: "Sábado 4 de octubre, 2025"
+  time: string; // ej: "09:00 a 11:30"
+  modality: "Presencial" | "Virtual" | "Híbrida";
+  location: string;
+  seats?: string; // ej: "30 cupos" (opcional)
+  accent: string;
+  status?: "open" | "soon" | "full";
+  formHref?: string; // opcional: formulario externo en vez de WhatsApp
+};
+
+export const activities: {
+  id: string;
+  kicker: string;
+  title: string;
+  lead: string;
+  items: Activity[];
+} = {
+  id: "actividades",
+  kicker: "Sumate y participá",
+  title: "Próximas actividades",
+  lead: "Charlas, talleres y encuentros para toda la comunidad. Elegí la actividad que te interese e inscribite en un toque.",
+  items: [
+    {
+      id: "charla-neurodiversidad",
+      title: "Charla: Entendiendo la neurodiversidad",
+      description:
+        "Una introducción cálida y práctica para padres, docentes y comunidad sobre qué es la neurodiversidad y cómo acompañar desde la empatía.",
+      date: "Sábado 4 de octubre, 2025",
+      time: "09:00 a 11:00",
+      modality: "Presencial",
+      location: "Asunción (sede a confirmar)",
+      seats: "40 cupos",
+      accent: "var(--color-spectrum-teal)",
+      status: "open",
+    },
+    {
+      id: "taller-padres",
+      title: "Taller para familias: Herramientas del día a día",
+      description:
+        "Espacio de intercambio con profesionales para compartir estrategias, recursos y experiencias que hacen más liviana la rutina en casa.",
+      date: "Sábado 18 de octubre, 2025",
+      time: "15:00 a 17:30",
+      modality: "Híbrida",
+      location: "Presencial + transmisión online",
+      seats: "30 cupos",
+      accent: "var(--color-spectrum-purple)",
+      status: "open",
+    },
+    {
+      id: "encuentro-familias",
+      title: "Encuentro de familias neurodivergentes",
+      description:
+        "Una tarde para conocernos, compartir y tejer red. Un espacio seguro donde nadie transita este camino en soledad.",
+      date: "Domingo 9 de noviembre, 2025",
+      time: "16:00 a 18:00",
+      modality: "Presencial",
+      location: "Asunción (sede a confirmar)",
+      accent: "var(--color-spectrum-orange)",
+      status: "soon",
     },
   ],
 };
