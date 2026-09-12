@@ -5,13 +5,7 @@ import { activities, site, type Activity } from "@/content/site";
 import { fetchActivities } from "@/lib/data";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
-
-/** Link de inscripción: formulario externo si existe, si no WhatsApp con mensaje listo. */
-function registerHref(a: Activity): string {
-  if (a.formHref) return a.formHref;
-  const msg = `¡Hola! Quiero inscribirme a la actividad: ${a.title} (${a.date}). ¿Me pasan los detalles?`;
-  return `${site.whatsapp.href}?text=${encodeURIComponent(msg)}`;
-}
+import { RegistrationModal } from "./registration-modal";
 
 const STATUS_LABEL: Record<NonNullable<Activity["status"]>, string> = {
   open: "Inscribirme",
@@ -22,6 +16,7 @@ const STATUS_LABEL: Record<NonNullable<Activity["status"]>, string> = {
 export function Activities() {
   // Arranca con el contenido estático (fallback) y trae los datos reales de Supabase.
   const [items, setItems] = useState<Activity[]>(activities.items);
+  const [regFor, setRegFor] = useState<Activity | null>(null);
 
   useEffect(() => {
     let alive = true;
@@ -114,17 +109,16 @@ export function Activities() {
                 {/* Inscripción */}
                 <div className="shrink-0">
                   {isOpen ? (
-                    <a
-                      href={registerHref(a)}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      type="button"
+                      onClick={() => setRegFor(a)}
                       className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-base font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-600 hover:shadow-md sm:w-auto"
                     >
                       {label}
                       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
-                    </a>
+                    </button>
                   ) : (
                     <span className="inline-flex w-full items-center justify-center rounded-full border border-border bg-surface-muted px-6 py-3 text-base font-bold text-muted-foreground sm:w-auto">
                       {label}
@@ -152,6 +146,8 @@ export function Activities() {
           .
         </p>
       </Reveal>
+
+      <RegistrationModal activity={regFor} onClose={() => setRegFor(null)} />
     </Section>
   );
 }

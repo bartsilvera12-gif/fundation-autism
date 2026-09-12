@@ -188,6 +188,57 @@ export async function fetchProjectMedia(): Promise<{ renders: ProjectMedia[]; pl
   return { renders, plans };
 }
 
+/* ------------------------------ Inscripciones ------------------------------ */
+
+export type NewRegistration = {
+  activity_id: string | null;
+  activity_title: string;
+  full_name: string;
+  cedula: string;
+  phone: string;
+  email: string;
+  city: string;
+};
+
+/** Envía una inscripción (pública). No requiere leer (privacidad). */
+export async function submitRegistration(r: NewRegistration): Promise<{ ok: boolean; error?: string }> {
+  if (!supabase) return { ok: false, error: "Sin conexión con el servidor." };
+  const { error } = await supabase.from("registrations").insert({
+    activity_id: r.activity_id,
+    activity_title: r.activity_title,
+    full_name: r.full_name,
+    cedula: r.cedula || null,
+    phone: r.phone || null,
+    email: r.email || null,
+    city: r.city || null,
+  });
+  if (error) return { ok: false, error: error.message };
+  return { ok: true };
+}
+
+export type RegistrationRecord = {
+  id: string;
+  activity_id: string | null;
+  activity_title: string | null;
+  full_name: string;
+  cedula: string | null;
+  phone: string | null;
+  email: string | null;
+  city: string | null;
+  created_at: string;
+};
+
+/** Lista las inscripciones (solo admin; RLS restringe la lectura). */
+export async function fetchRegistrations(): Promise<RegistrationRecord[] | null> {
+  if (!supabase) return null;
+  const { data, error } = await supabase
+    .from("registrations")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error || !data) return null;
+  return data as RegistrationRecord[];
+}
+
 /* --------------------------------- Eventos --------------------------------- */
 
 export type EventRecord = { id: string; title: string; description: string; accent: string };

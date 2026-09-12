@@ -10,10 +10,12 @@ import { KidsManager } from "./KidsManager";
 import { GalleryManager } from "./GalleryManager";
 import { EventsManager } from "./EventsManager";
 import { ProjectManager } from "./ProjectManager";
+import { RegistrationsManager } from "./RegistrationsManager";
 import { BrandMark } from "@/components/ui/brand-mark";
 
 const TABS = [
   { id: "actividades", label: "Actividades" },
+  { id: "inscripciones", label: "Inscripciones" },
   { id: "comision", label: "Comisión" },
   { id: "eventos", label: "Eventos" },
   { id: "proyecto", label: "Proyecto" },
@@ -89,6 +91,7 @@ export function AdminApp() {
 
         <main className="mx-auto max-w-6xl px-4 py-8">
           {tab === "actividades" && <ActivitiesManager />}
+          {tab === "inscripciones" && <RegistrationsManager />}
           {tab === "comision" && <BoardManager />}
           {tab === "eventos" && <EventsManager />}
           {tab === "proyecto" && <ProjectManager />}

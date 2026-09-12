@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { Button, Card, Field, Input, Modal, Select, Textarea, Toast } from "./ui";
+import { Button, Card, ColorSwatches, Dropdown, Field, Input, Modal, Textarea, Toast } from "./ui";
 
+/** Fila en la base (solo columnas reales). */
 type Row = {
   id: string;
   title: string;
@@ -19,6 +20,47 @@ type Row = {
   is_published: boolean;
 };
 
+/** Estado del formulario: campos de la base + helpers de UI (fecha/hora estructuradas). */
+type FormState = Omit<Row, "id"> & { date_iso: string; time_start: string; time_end: string };
+
+const MONTHS = [
+  "enero", "febrero", "marzo", "abril", "mayo", "junio",
+  "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+];
+
+/** "2025-10-04" -> "Sábado 4 de octubre de 2025" */
+function formatDateEs(iso: string): string {
+  if (!iso) return "";
+  const d = new Date(iso + "T00:00:00");
+  if (isNaN(d.getTime())) return "";
+  const s = d.toLocaleDateString("es-PY", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  const clean = s.replace(",", "");
+  return clean.charAt(0).toUpperCase() + clean.slice(1);
+}
+function formatTime(start: string, end: string): string {
+  if (start && end) return `${start} a ${end}`;
+  return start || end || "";
+}
+/** "Sábado 4 de octubre de 2025" -> "2025-10-04" (para precargar el calendario al editar) */
+function parseDateEs(label: string | null): string {
+  if (!label) return "";
+  const m = label.toLowerCase().match(/(\d{1,2})\s+de\s+([a-záéíóúñ]+)\s+(?:de\s+)?(\d{4})/);
+  if (!m) return "";
+  const mi = MONTHS.indexOf(m[2]);
+  if (mi < 0) return "";
+  return `${m[3]}-${String(mi + 1).padStart(2, "0")}-${m[1].padStart(2, "0")}`;
+}
+/** "09:00 a 11:00" -> ["09:00","11:00"] */
+function parseTimeRange(label: string | null): [string, string] {
+  if (!label) return ["", ""];
+  const t = (s: string) => {
+    const mm = s.match(/(\d{1,2}):(\d{2})/);
+    return mm ? `${mm[1].padStart(2, "0")}:${mm[2]}` : "";
+  };
+  const parts = label.split(/\s+a\s+/);
+  return [t(parts[0] ?? ""), t(parts[1] ?? "")];
+}
+
 const ACCENTS = [
   { label: "Celeste", value: "var(--color-spectrum-teal)" },
   { label: "Violeta", value: "var(--color-spectrum-purple)" },
@@ -28,11 +70,14 @@ const ACCENTS = [
   { label: "Azul", value: "var(--color-spectrum-blue)" },
 ];
 
-const EMPTY: Omit<Row, "id"> = {
+const EMPTY: FormState = {
   title: "",
   description: "",
   date_label: "",
   time_label: "",
+  date_iso: "",
+  time_start: "",
+  time_end: "",
   modality: "Presencial",
   location: "",
   seats: "",
@@ -47,7 +92,7 @@ export function ActivitiesManager() {
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<Row | null>(null);
-  const [form, setForm] = useState<Omit<Row, "id">>(EMPTY);
+  const [form, setForm] = useState<FormState>(EMPTY);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
 
@@ -82,7 +127,8 @@ export function ActivitiesManager() {
     setEditing(r);
     const { id: _id, ...rest } = r;
     void _id;
-    setForm(rest);
+    const [ts, te] = parseTimeRange(r.time_label);
+    setForm({ ...rest, date_iso: parseDateEs(r.date_label), time_start: ts, time_end: te });
     setOpen(true);
   }
 
@@ -90,7 +136,14 @@ export function ActivitiesManager() {
     e.preventDefault();
     if (!supabase) return;
     setBusy(true);
-    const payload = { ...form, description: form.description || null };
+    // Separa los helpers de UI (no son columnas) y deriva el texto que muestra el sitio.
+    const { date_iso, time_start, time_end, ...dbFields } = form;
+    const payload = {
+      ...dbFields,
+      description: dbFields.description || null,
+      date_label: formatDateEs(date_iso) || null,
+      time_label: formatTime(time_start, time_end) || null,
+    };
     const res = editing
       ? await supabase.from("activities").update(payload).eq("id", editing.id)
       : await supabase.from("activities").insert(payload);
@@ -170,29 +223,40 @@ export function ActivitiesManager() {
               onChange={(e) => setForm({ ...form, description: e.target.value })}
             />
           </Field>
+          <Field label="Fecha">
+            <Input
+              type="date"
+              value={form.date_iso ?? ""}
+              onChange={(e) => setForm({ ...form, date_iso: e.target.value })}
+            />
+          </Field>
           <div className="grid grid-cols-2 gap-3">
-            <Field label="Fecha">
+            <Field label="Desde">
               <Input
-                placeholder="Sáb 4 de oct, 2025"
-                value={form.date_label ?? ""}
-                onChange={(e) => setForm({ ...form, date_label: e.target.value })}
+                type="time"
+                value={form.time_start ?? ""}
+                onChange={(e) => setForm({ ...form, time_start: e.target.value })}
               />
             </Field>
-            <Field label="Horario">
+            <Field label="Hasta">
               <Input
-                placeholder="09:00 a 11:00"
-                value={form.time_label ?? ""}
-                onChange={(e) => setForm({ ...form, time_label: e.target.value })}
+                type="time"
+                value={form.time_end ?? ""}
+                onChange={(e) => setForm({ ...form, time_end: e.target.value })}
               />
             </Field>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <Field label="Modalidad">
-              <Select value={form.modality ?? "Presencial"} onChange={(e) => setForm({ ...form, modality: e.target.value })}>
-                <option>Presencial</option>
-                <option>Virtual</option>
-                <option>Híbrida</option>
-              </Select>
+              <Dropdown
+                value={form.modality ?? "Presencial"}
+                onChange={(v) => setForm({ ...form, modality: v })}
+                options={[
+                  { label: "Presencial", value: "Presencial" },
+                  { label: "Virtual", value: "Virtual" },
+                  { label: "Híbrida", value: "Híbrida" },
+                ]}
+              />
             </Field>
             <Field label="Cupos (opcional)">
               <Input placeholder="30 cupos" value={form.seats ?? ""} onChange={(e) => setForm({ ...form, seats: e.target.value })} />
@@ -201,24 +265,20 @@ export function ActivitiesManager() {
           <Field label="Lugar">
             <Input value={form.location ?? ""} onChange={(e) => setForm({ ...form, location: e.target.value })} />
           </Field>
-          <div className="grid grid-cols-2 gap-3">
-            <Field label="Color">
-              <Select value={form.accent ?? ""} onChange={(e) => setForm({ ...form, accent: e.target.value })}>
-                {ACCENTS.map((a) => (
-                  <option key={a.value} value={a.value}>
-                    {a.label}
-                  </option>
-                ))}
-              </Select>
-            </Field>
-            <Field label="Estado">
-              <Select value={form.status ?? "open"} onChange={(e) => setForm({ ...form, status: e.target.value })}>
-                <option value="open">Inscripción abierta</option>
-                <option value="soon">Próximamente</option>
-                <option value="full">Cupos llenos</option>
-              </Select>
-            </Field>
-          </div>
+          <Field label="Color">
+            <ColorSwatches value={form.accent ?? ""} onChange={(v) => setForm({ ...form, accent: v })} options={ACCENTS} />
+          </Field>
+          <Field label="Estado">
+            <Dropdown
+              value={form.status ?? "open"}
+              onChange={(v) => setForm({ ...form, status: v })}
+              options={[
+                { label: "Inscripción abierta", value: "open" },
+                { label: "Próximamente", value: "soon" },
+                { label: "Cupos llenos", value: "full" },
+              ]}
+            />
+          </Field>
           <label className="flex items-center gap-2 text-sm font-semibold">
             <input
               type="checkbox"

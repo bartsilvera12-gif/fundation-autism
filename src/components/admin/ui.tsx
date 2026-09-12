@@ -1,7 +1,175 @@
 "use client";
 
-import { useEffect, type ReactNode, type InputHTMLAttributes, type TextareaHTMLAttributes, type SelectHTMLAttributes } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type InputHTMLAttributes,
+  type TextareaHTMLAttributes,
+  type SelectHTMLAttributes,
+} from "react";
 import { cn } from "@/lib/cn";
+
+type Option = { label: string; value: string };
+
+/** Dropdown elegante (reemplaza al <select> nativo). */
+export function Dropdown({
+  value,
+  onChange,
+  options,
+  placeholder = "Elegí…",
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  options: Option[];
+  placeholder?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const [up, setUp] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const current = options.find((o) => o.value === value);
+
+  function toggle() {
+    setOpen((o) => {
+      const next = !o;
+      if (next && ref.current) {
+        const r = ref.current.getBoundingClientRect();
+        // Si abajo hay poco espacio, desplegar hacia arriba.
+        setUp(window.innerHeight - r.bottom < 260);
+      }
+      return next;
+    });
+  }
+
+  useEffect(() => {
+    if (!open) return;
+    const onDoc = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        // Cierra solo el dropdown (evita que el modal también se cierre).
+        e.stopPropagation();
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDoc);
+    document.addEventListener("keydown", onKey, true);
+    return () => {
+      document.removeEventListener("mousedown", onDoc);
+      document.removeEventListener("keydown", onKey, true);
+    };
+  }, [open]);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={toggle}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        className={cn(inputBase, "flex items-center justify-between gap-2 text-left")}
+      >
+        <span className={current ? "" : "text-muted-foreground/60"}>{current?.label ?? placeholder}</span>
+        <Chevron open={open} />
+      </button>
+      {open && (
+        <ul
+          role="listbox"
+          className={cn(
+            "absolute left-0 right-0 z-40 max-h-60 overflow-auto rounded-xl border border-border bg-card p-1 shadow-xl",
+            up ? "bottom-full mb-1.5" : "top-full mt-1.5",
+          )}
+        >
+          {options.map((o) => (
+            <li key={o.value}>
+              <button
+                type="button"
+                role="option"
+                aria-selected={o.value === value}
+                onClick={() => {
+                  onChange(o.value);
+                  setOpen(false);
+                }}
+                className={cn(
+                  "flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors",
+                  o.value === value
+                    ? "bg-brand-50 font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200"
+                    : "hover:bg-surface-muted",
+                )}
+              >
+                {o.label}
+                {o.value === value ? <Check className="h-4 w-4" /> : null}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+/** Paleta de colores visual (círculos). */
+export function ColorSwatches({
+  value,
+  onChange,
+  options,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  options: Option[];
+}) {
+  return (
+    <div className="flex flex-wrap gap-2.5">
+      {options.map((o) => {
+        const sel = o.value === value;
+        return (
+          <button
+            key={o.value}
+            type="button"
+            title={o.label}
+            aria-label={o.label}
+            aria-pressed={sel}
+            onClick={() => onChange(o.value)}
+            className="relative h-9 w-9 rounded-full transition-transform hover:scale-110"
+            style={{
+              background: o.value,
+              boxShadow: sel ? `0 0 0 2px var(--card), 0 0 0 4px ${o.value}` : undefined,
+            }}
+          >
+            {sel ? <Check className="absolute inset-0 m-auto h-4 w-4 text-white drop-shadow" /> : null}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      className={cn("h-4 w-4 shrink-0 text-muted-foreground transition-transform", open && "rotate-180")}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+function Check({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
 
 /** Modal centrado con overlay, cierre por ESC / click afuera y bloqueo de scroll. */
 export function Modal({

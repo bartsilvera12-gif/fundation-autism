@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { Button, Card, Field, Input, Modal, Select, Textarea, Toast } from "./ui";
+import { Button, Card, ColorSwatches, Field, Input, Modal, Textarea, Toast } from "./ui";
 
 type Row = {
   id: string;
@@ -148,17 +148,9 @@ export function EventsManager() {
           <Field label="Descripción">
             <Textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
           </Field>
-          <div className="max-w-[220px]">
-            <Field label="Color">
-              <Select value={form.accent} onChange={(e) => setForm({ ...form, accent: e.target.value })}>
-                {ACCENTS.map((a) => (
-                  <option key={a.value} value={a.value}>
-                    {a.label}
-                  </option>
-                ))}
-              </Select>
-            </Field>
-          </div>
+          <Field label="Color">
+            <ColorSwatches value={form.accent} onChange={(v) => setForm({ ...form, accent: v })} options={ACCENTS} />
+          </Field>
           <div className="flex gap-2 pt-2">
             <Button type="submit" disabled={busy} className="flex-1">
               {busy ? "Guardando…" : editing ? "Guardar cambios" : "Agregar evento"}

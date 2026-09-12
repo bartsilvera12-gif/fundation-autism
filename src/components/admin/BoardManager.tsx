@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import { uploadImage } from "@/lib/admin";
-import { Button, Card, Field, Input, Modal, Select, Toast } from "./ui";
+import { Button, Card, Dropdown, Field, Input, Modal, Toast } from "./ui";
 
 type Row = {
   id: string;
@@ -167,11 +167,15 @@ export function BoardManager() {
             <Input value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })} required />
           </Field>
           <Field label="Rol en el organigrama">
-            <Select value={form.kind} onChange={(e) => setForm({ ...form, kind: e.target.value as Row["kind"] })}>
-              <option value="president">Presidente (destacado)</option>
-              <option value="vice">Vicepresidente (destacado)</option>
-              <option value="member">Miembro</option>
-            </Select>
+            <Dropdown
+              value={form.kind}
+              onChange={(v) => setForm({ ...form, kind: v as Row["kind"] })}
+              options={[
+                { label: "Presidente (destacado)", value: "president" },
+                { label: "Vicepresidente (destacado)", value: "vice" },
+                { label: "Miembro", value: "member" },
+              ]}
+            />
           </Field>
           <div className="flex gap-2 pt-2">
             <Button type="submit" disabled={busy} className="flex-1">
