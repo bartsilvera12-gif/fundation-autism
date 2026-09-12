@@ -38,7 +38,7 @@ export function BrandMark({ className }: { className?: string }) {
           ))}
           <span className="ml-1 align-super text-[0.6em] text-current opacity-80">Py</span>
         </span>
-        <span className="text-[0.62rem] font-medium uppercase tracking-[0.18em] opacity-60">
+        <span className="hidden text-[0.62rem] font-medium uppercase tracking-[0.18em] opacity-60 sm:block">
           Fundación · Neurodiversidad
         </span>
       </span>

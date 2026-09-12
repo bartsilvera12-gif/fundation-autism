@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { history } from "@/content/site";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 import { Parallax } from "@/components/ui/parallax";
-import { photoAt } from "@/lib/photos";
+import { RotatingPhoto } from "@/components/ui/rotating-photo";
+import { pickPhotos } from "@/lib/photos";
 import { cn } from "@/lib/cn";
 
 export function History() {
@@ -21,7 +21,7 @@ export function History() {
       <div className="mt-6 space-y-16 sm:space-y-24">
         {history.timeline.map((item, i) => {
           const HISTORY_PHOTOS = [17, 19, 22, 48];
-          const photo = photoAt(HISTORY_PHOTOS[i % HISTORY_PHOTOS.length]);
+          const photos = pickPhotos(4, HISTORY_PHOTOS[i % HISTORY_PHOTOS.length]);
           const flip = i % 2 === 1;
           return (
             <div
@@ -31,19 +31,14 @@ export function History() {
               {/* Foto */}
               <Reveal className={cn(flip && "md:order-2")}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-xl">
-                  {photo && (
-                    <Parallax amount={22} className="absolute inset-0">
-                      <Image
-                        src={photo.src}
-                        alt={photo.alt}
-                        fill
-                        sizes="(max-width: 768px) 90vw, 45vw"
-                        placeholder="blur"
-                        blurDataURL={photo.blurDataURL}
-                        className="object-cover"
-                      />
-                    </Parallax>
-                  )}
+                  <Parallax amount={22} className="absolute inset-0">
+                    <RotatingPhoto
+                      photos={photos}
+                      interval={6000}
+                      sizes="(max-width: 768px) 90vw, 45vw"
+                      alt={`Momento de la historia de la Fundación: ${item.title}`}
+                    />
+                  </Parallax>
                 </div>
               </Reveal>
 

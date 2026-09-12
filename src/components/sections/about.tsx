@@ -1,14 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import CountUp from "@/components/reactbits/CountUp";
 import { about } from "@/content/site";
 import { Section } from "@/components/ui/section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { cn } from "@/lib/cn";
 import { Parallax } from "@/components/ui/parallax";
+import { RotatingPhoto } from "@/components/ui/rotating-photo";
 import { usePrefersReducedMotion } from "@/lib/motion";
-import { photoAt } from "@/lib/photos";
+import { pickPhotos } from "@/lib/photos";
 
 const HL_GRADIENTS = [
   "linear-gradient(135deg, #e00e1e, #f7941d)",
@@ -19,8 +19,8 @@ const HL_GRADIENTS = [
 
 export function About() {
   const reduced = usePrefersReducedMotion();
-  const pA = photoAt(45);
-  const pB = photoAt(30);
+  const mainPhotos = pickPhotos(6, 5);
+  const sidePhotos = pickPhotos(5, 31);
 
   return (
     <Section id={about.id} className="bg-background" containerClassName="max-w-7xl">
@@ -76,35 +76,24 @@ export function About() {
         {/* Collage de fotos */}
         <Reveal delay={0.1}>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
-            {pA && (
-              <Parallax amount={24} className="absolute inset-0 overflow-hidden rounded-[2rem] shadow-2xl">
-                <Image
-                  src={pA.src}
-                  alt={pA.alt}
-                  fill
-                  sizes="(max-width: 1024px) 90vw, 40vw"
-                  placeholder="blur"
-                  blurDataURL={pA.blurDataURL}
-                  className="object-cover"
-                />
-              </Parallax>
-            )}
-            {pB && (
-              <Parallax
-                amount={-30}
-                className="absolute -bottom-8 -left-8 z-10 aspect-square w-40 overflow-hidden rounded-3xl border-4 border-background shadow-xl sm:w-52"
-              >
-                <Image
-                  src={pB.src}
-                  alt={pB.alt}
-                  fill
-                  sizes="220px"
-                  placeholder="blur"
-                  blurDataURL={pB.blurDataURL}
-                  className="object-cover"
-                />
-              </Parallax>
-            )}
+            <Parallax amount={24} className="absolute inset-0 overflow-hidden rounded-[2rem] shadow-2xl">
+              <RotatingPhoto
+                photos={mainPhotos}
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                alt="Familias y comunidad de la Fundación ATYPICAL Py"
+              />
+            </Parallax>
+            <Parallax
+              amount={-30}
+              className="absolute -bottom-8 -left-8 z-10 aspect-square w-40 overflow-hidden rounded-3xl border-4 border-background shadow-xl sm:w-52"
+            >
+              <RotatingPhoto
+                photos={sidePhotos}
+                interval={6200}
+                sizes="220px"
+                alt=""
+              />
+            </Parallax>
             {/* Chip espectro */}
             <div
               aria-hidden="true"

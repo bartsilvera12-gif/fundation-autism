@@ -26,6 +26,26 @@ export function Activities() {
         lead={activities.lead}
       />
 
+      {activities.items.length === 0 ? (
+        <Reveal className="mx-auto max-w-xl rounded-3xl border border-dashed border-card-border bg-card/60 px-6 py-14 text-center">
+          <p className="text-5xl" aria-hidden="true">📅</p>
+          <p className="mt-4 text-xl font-bold text-foreground">
+            Pronto anunciaremos nuevas actividades
+          </p>
+          <p className="mt-2 text-muted-foreground">
+            Estamos preparando charlas, talleres y encuentros. Seguinos o escribinos por
+            WhatsApp para enterarte primero.
+          </p>
+          <a
+            href={site.whatsapp.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-3.5 text-base font-bold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-600 hover:shadow-md"
+          >
+            Quiero que me avisen
+          </a>
+        </Reveal>
+      ) : (
       <RevealGroup className="flex flex-col gap-4">
         {activities.items.map((a) => {
           const status = a.status ?? "open";
@@ -101,6 +121,7 @@ export function Activities() {
           );
         })}
       </RevealGroup>
+      )}
 
       <Reveal delay={0.1} className="mt-8 text-center text-muted-foreground">
         <p>

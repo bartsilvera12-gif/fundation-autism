@@ -88,6 +88,8 @@ export default function RootLayout({
           >
             Saltar al contenido
           </a>
+          {/* Fondo pastel multicolor animado, global y detrás de todo */}
+          <div aria-hidden="true" className="mesh-global mesh-animated" />
           <LenisProvider>
             <ScrollProgress />
             <Navbar />

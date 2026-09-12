@@ -1,13 +1,13 @@
-import Image from "next/image";
 import { missionVision } from "@/content/site";
 import { Reveal } from "@/components/ui/reveal";
-import { photoAt } from "@/lib/photos";
+import { RotatingPhoto } from "@/components/ui/rotating-photo";
+import { pickPhotos } from "@/lib/photos";
 
 export function MissionVision() {
   const { mission, vision } = missionVision;
   const blocks = [
-    { ...mission, photo: photoAt(33) },
-    { ...vision, photo: photoAt(29) },
+    { ...mission, photos: pickPhotos(5, 33) },
+    { ...vision, photos: pickPhotos(5, 29) },
   ];
 
   return (
@@ -35,20 +35,15 @@ export function MissionVision() {
           {blocks.map((block, i) => (
             <Reveal key={block.label} delay={i * 0.1}>
               <article className="flex h-full flex-col">
-                {/* Foto contenida, limpia */}
-                {block.photo && (
-                  <div className="relative mb-7 aspect-[16/10] overflow-hidden rounded-[1.75rem] shadow-2xl ring-1 ring-white/15">
-                    <Image
-                      src={block.photo.src}
-                      alt={block.photo.alt}
-                      fill
-                      sizes="(max-width: 768px) 90vw, 45vw"
-                      placeholder="blur"
-                      blurDataURL={block.photo.blurDataURL}
-                      className="object-cover"
-                    />
-                  </div>
-                )}
+                {/* Foto contenida, limpia — va rotando */}
+                <div className="relative mb-7 aspect-[16/10] overflow-hidden rounded-[1.75rem] shadow-2xl ring-1 ring-white/15">
+                  <RotatingPhoto
+                    photos={block.photos}
+                    interval={5800}
+                    sizes="(max-width: 768px) 90vw, 45vw"
+                    alt={`${block.label} de la Fundación ATYPICAL Py`}
+                  />
+                </div>
                 <span className="font-display text-sm font-bold uppercase tracking-[0.25em] text-white/70">
                   {block.label}
                 </span>

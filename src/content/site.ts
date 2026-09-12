@@ -468,46 +468,20 @@ export const activities: {
   kicker: "Sumate y participá",
   title: "Próximas actividades",
   lead: "Charlas, talleres y encuentros para toda la comunidad. Elegí la actividad que te interese e inscribite en un toque.",
-  items: [
-    {
-      id: "charla-neurodiversidad",
-      title: "Charla: Entendiendo la neurodiversidad",
-      description:
-        "Una introducción cálida y práctica para padres, docentes y comunidad sobre qué es la neurodiversidad y cómo acompañar desde la empatía.",
-      date: "Sábado 4 de octubre, 2025",
-      time: "09:00 a 11:00",
-      modality: "Presencial",
-      location: "Asunción (sede a confirmar)",
-      seats: "40 cupos",
-      accent: "var(--color-spectrum-teal)",
-      status: "open",
-    },
-    {
-      id: "taller-padres",
-      title: "Taller para familias: Herramientas del día a día",
-      description:
-        "Espacio de intercambio con profesionales para compartir estrategias, recursos y experiencias que hacen más liviana la rutina en casa.",
-      date: "Sábado 18 de octubre, 2025",
-      time: "15:00 a 17:30",
-      modality: "Híbrida",
-      location: "Presencial + transmisión online",
-      seats: "30 cupos",
-      accent: "var(--color-spectrum-purple)",
-      status: "open",
-    },
-    {
-      id: "encuentro-familias",
-      title: "Encuentro de familias neurodivergentes",
-      description:
-        "Una tarde para conocernos, compartir y tejer red. Un espacio seguro donde nadie transita este camino en soledad.",
-      date: "Domingo 9 de noviembre, 2025",
-      time: "16:00 a 18:00",
-      modality: "Presencial",
-      location: "Asunción (sede a confirmar)",
-      accent: "var(--color-spectrum-orange)",
-      status: "soon",
-    },
-  ],
+  // Cargá acá las actividades (ver instructivo arriba). Ejemplo de un ítem:
+  //   {
+  //     id: "charla-neurodiversidad",
+  //     title: "Charla: Entendiendo la neurodiversidad",
+  //     description: "Descripción de la actividad...",
+  //     date: "Sábado 4 de octubre, 2025",
+  //     time: "09:00 a 11:00",
+  //     modality: "Presencial",            // "Presencial" | "Virtual" | "Híbrida"
+  //     location: "Asunción (sede a confirmar)",
+  //     seats: "40 cupos",                 // opcional
+  //     accent: "var(--color-spectrum-teal)",
+  //     status: "open",                    // "open" | "soon" | "full"
+  //   },
+  items: [],
 };
 
 export const gallerySection = {

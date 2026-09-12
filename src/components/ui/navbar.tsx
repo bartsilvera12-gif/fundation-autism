@@ -72,11 +72,18 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5">
+          {/* Divisor sutil para agrupar el toggle con la barra */}
+          <span
+            aria-hidden="true"
+            className={cn(
+              "hidden h-6 w-px lg:block",
+              overHero ? "bg-white/25" : "bg-border",
+            )}
+          />
           <ThemeToggle
             className={cn(
-              overHero &&
-                "border-white/30 bg-white/10 text-white hover:bg-white/20",
+              overHero && "text-white/85 hover:bg-white/10 hover:text-white",
             )}
           />
 

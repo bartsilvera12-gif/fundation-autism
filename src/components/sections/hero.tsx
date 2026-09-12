@@ -52,7 +52,7 @@ export function Hero() {
         <SplitWords
           text={hero.title}
           as="h1"
-          className="font-display max-w-4xl text-balance text-5xl font-black leading-[1.02] tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:text-7xl md:text-8xl"
+          className="font-display max-w-4xl text-balance text-[2.5rem] font-black leading-[1.05] tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] sm:text-7xl sm:leading-[1.02] md:text-8xl"
           delay={0.15}
         />
 

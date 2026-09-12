@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { events } from "@/content/site";
-import { photoAt } from "@/lib/photos";
+import { pickPhotos } from "@/lib/photos";
+import { RotatingPhoto } from "@/components/ui/rotating-photo";
 import { usePrefersReducedMotion } from "@/lib/motion";
 
 const EVENT_PHOTOS = [20, 27, 35, 42, 45, 22];
@@ -82,24 +82,18 @@ export function Events() {
         onBlurCapture={() => setPaused(false)}
       >
         {events.items.map((ev, i) => {
-          const photo = photoAt(EVENT_PHOTOS[i % EVENT_PHOTOS.length]);
+          const photos = pickPhotos(5, EVENT_PHOTOS[i % EVENT_PHOTOS.length]);
           return (
             <article
               key={ev.title}
               className="relative flex aspect-[3/4] w-[80vw] shrink-0 snap-center flex-col justify-end overflow-hidden rounded-[2rem] sm:aspect-[4/5] sm:w-[22rem] md:w-[24rem]"
             >
-              {photo && (
-                <Image
-                  src={photo.src}
-                  alt=""
-                  aria-hidden="true"
-                  fill
-                  sizes="(max-width: 768px) 80vw, 24rem"
-                  placeholder="blur"
-                  blurDataURL={photo.blurDataURL}
-                  className="object-cover"
-                />
-              )}
+              <RotatingPhoto
+                photos={photos}
+                interval={5200}
+                sizes="(max-width: 768px) 80vw, 24rem"
+                alt=""
+              />
               <div
                 className="absolute inset-0"
                 style={{
