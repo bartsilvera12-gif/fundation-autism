@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { activities, site, type Activity } from "@/content/site";
+import { fetchActivities } from "@/lib/data";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 
@@ -18,6 +20,19 @@ const STATUS_LABEL: Record<NonNullable<Activity["status"]>, string> = {
 };
 
 export function Activities() {
+  // Arranca con el contenido estático (fallback) y trae los datos reales de Supabase.
+  const [items, setItems] = useState<Activity[]>(activities.items);
+
+  useEffect(() => {
+    let alive = true;
+    fetchActivities().then((data) => {
+      if (alive && data) setItems(data);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   return (
     <Section id={activities.id} className="bg-background" ambient="b">
       <SectionHeading
@@ -26,7 +41,7 @@ export function Activities() {
         lead={activities.lead}
       />
 
-      {activities.items.length === 0 ? (
+      {items.length === 0 ? (
         <Reveal className="mx-auto max-w-xl rounded-3xl border border-dashed border-card-border bg-card/60 px-6 py-14 text-center">
           <p className="text-5xl" aria-hidden="true">📅</p>
           <p className="mt-4 text-xl font-bold text-foreground">
@@ -47,7 +62,7 @@ export function Activities() {
         </Reveal>
       ) : (
       <RevealGroup className="flex flex-col gap-4">
-        {activities.items.map((a) => {
+        {items.map((a) => {
           const status = a.status ?? "open";
           const isOpen = status === "open";
           const label = STATUS_LABEL[status];

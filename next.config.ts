@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
     // Sin optimizador de Next: las WebP ya están optimizadas (q90) y así
     // funcionan en hosting estático (Hostinger) y sin fallos del optimizador.
     unoptimized: true,
+    // Imágenes subidas desde el /admin viven en el Storage de Supabase.
+    remotePatterns: [
+      { protocol: "https", hostname: "api.neura.com.py" },
+    ],
   },
 };
 

@@ -8,6 +8,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { WhatsappFab } from "@/components/ui/whatsapp-fab";
+import { ChromeGate } from "@/components/ui/chrome-gate";
 import { JsonLd } from "@/components/seo/json-ld";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -91,12 +92,16 @@ export default function RootLayout({
           {/* Fondo pastel multicolor animado, global y detrás de todo */}
           <div aria-hidden="true" className="mesh-global mesh-animated" />
           <LenisProvider>
-            <ScrollProgress />
-            <Navbar />
+            <ChromeGate>
+              <ScrollProgress />
+              <Navbar />
+            </ChromeGate>
             <div id="top" />
             <main id="main">{children}</main>
-            <Footer />
-            <WhatsappFab />
+            <ChromeGate>
+              <Footer />
+              <WhatsappFab />
+            </ChromeGate>
           </LenisProvider>
         </ThemeProvider>
       </body>
