@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { supabase, supabaseEnabled } from "@/lib/supabase";
 import { useSession } from "@/lib/admin";
 import { Button, Card, Field, Input } from "./ui";
@@ -27,8 +27,10 @@ export function AdminApp() {
   const { session, loading } = useSession();
   const [tab, setTab] = useState<TabId>("actividades");
 
+  let content: ReactNode;
+
   if (!supabaseEnabled) {
-    return (
+    content = (
       <Centered>
         <Card className="max-w-md text-center">
           <p className="text-lg font-bold">Supabase no está configurado</p>
@@ -39,70 +41,75 @@ export function AdminApp() {
         </Card>
       </Centered>
     );
-  }
-
-  if (loading) {
-    return (
+  } else if (loading) {
+    content = (
       <Centered>
         <p className="text-muted-foreground">Cargando…</p>
       </Centered>
     );
+  } else if (!session) {
+    content = <Login />;
+  } else {
+    content = (
+      <div className="min-h-screen">
+        {/* Header + pestañas fijas */}
+        <header className="sticky top-0 z-30 border-b border-border bg-surface/80 backdrop-blur-md">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+            <div className="flex items-center gap-3">
+              <BrandMark />
+              <span className="hidden rounded-full bg-surface-muted px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-600 sm:inline">
+                Panel
+              </span>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <span className="hidden text-muted-foreground md:inline">{session.user.email}</span>
+              <Button variant="ghost" onClick={() => supabase?.auth.signOut()}>
+                Salir
+              </Button>
+            </div>
+          </div>
+          <nav className="mx-auto max-w-6xl px-2">
+            <div className="flex gap-1 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {TABS.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => setTab(t.id)}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                    tab === t.id
+                      ? "bg-brand-500 text-white"
+                      : "text-foreground/60 hover:bg-surface-muted hover:text-foreground"
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          </nav>
+        </header>
+
+        <main className="mx-auto max-w-6xl px-4 py-8">
+          {tab === "actividades" && <ActivitiesManager />}
+          {tab === "comision" && <BoardManager />}
+          {tab === "eventos" && <EventsManager />}
+          {tab === "proyecto" && <ProjectManager />}
+          {tab === "divertite" && <KidsManager />}
+          {tab === "galeria" && <GalleryManager />}
+        </main>
+      </div>
+    );
   }
 
-  if (!session) return <Login />;
-
   return (
-    <div className="min-h-screen bg-surface text-foreground">
-      {/* Header fijo */}
-      <header className="sticky top-0 z-30 border-b border-border bg-surface/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-          <div className="flex items-center gap-3">
-            <BrandMark />
-            <span className="hidden rounded-full bg-surface-muted px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-600 sm:inline">
-              Panel
-            </span>
-          </div>
-          <div className="flex items-center gap-3 text-sm">
-            <span className="hidden text-muted-foreground md:inline">{session.user.email}</span>
-            <Button variant="ghost" onClick={() => supabase?.auth.signOut()}>
-              Salir
-            </Button>
-          </div>
-        </div>
-        {/* Pestañas fijas debajo del header */}
-        <nav className="mx-auto max-w-6xl px-2">
-          <div className="flex gap-1 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {TABS.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => setTab(t.id)}
-                className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-bold transition-colors ${
-                  tab === t.id
-                    ? "bg-brand-500 text-white"
-                    : "text-foreground/60 hover:bg-surface-muted hover:text-foreground"
-                }`}
-              >
-                {t.label}
-              </button>
-            ))}
-          </div>
-        </nav>
-      </header>
-
-      <main className="mx-auto max-w-6xl px-4 py-8">
-        {tab === "actividades" && <ActivitiesManager />}
-        {tab === "comision" && <BoardManager />}
-        {tab === "eventos" && <EventsManager />}
-        {tab === "proyecto" && <ProjectManager />}
-        {tab === "divertite" && <KidsManager />}
-        {tab === "galeria" && <GalleryManager />}
-      </main>
+    <div className="relative min-h-screen text-foreground">
+      {/* Fondo degradado animado con los colores del logo */}
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 mesh-animated" />
+      {content}
     </div>
   );
 }
 
-function Centered({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-h-screen items-center justify-center bg-surface px-4">{children}</div>;
+function Centered({ children }: { children: ReactNode }) {
+  return <div className="flex min-h-screen items-center justify-center px-4">{children}</div>;
 }
 
 function Login() {
@@ -132,13 +139,7 @@ function Login() {
         </div>
         <form onSubmit={onSubmit} className="space-y-4">
           <Field label="Email">
-            <Input
-              type="email"
-              autoComplete="username"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+            <Input type="email" autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </Field>
           <Field label="Contraseña">
             <Input
