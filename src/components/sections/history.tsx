@@ -1,14 +1,17 @@
 "use client";
 
+"use client";
+
 import { history } from "@/content/site";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 import { Parallax } from "@/components/ui/parallax";
 import { RotatingPhoto } from "@/components/ui/rotating-photo";
-import { pickPhotos } from "@/lib/photos";
+import { usePhotoPool, pickFrom } from "@/lib/use-photo-pool";
 import { cn } from "@/lib/cn";
 
 export function History() {
+  const pool = usePhotoPool();
   return (
     <Section id={history.id} className="bg-background" containerClassName="max-w-6xl" ambient="b">
       <SectionHeading
@@ -21,7 +24,7 @@ export function History() {
       <div className="mt-6 space-y-16 sm:space-y-24">
         {history.timeline.map((item, i) => {
           const HISTORY_PHOTOS = [17, 19, 22, 48];
-          const photos = pickPhotos(4, HISTORY_PHOTOS[i % HISTORY_PHOTOS.length]);
+          const photos = pickFrom(pool, 4, HISTORY_PHOTOS[i % HISTORY_PHOTOS.length]);
           const flip = i % 2 === 1;
           return (
             <div

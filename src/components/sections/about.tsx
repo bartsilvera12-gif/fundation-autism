@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
 import { Parallax } from "@/components/ui/parallax";
 import { RotatingPhoto } from "@/components/ui/rotating-photo";
 import { usePrefersReducedMotion } from "@/lib/motion";
-import { pickPhotos } from "@/lib/photos";
+import { usePhotoPool, pickFrom } from "@/lib/use-photo-pool";
 
 const HL_GRADIENTS = [
   "linear-gradient(135deg, #e00e1e, #f7941d)",
@@ -19,8 +19,9 @@ const HL_GRADIENTS = [
 
 export function About() {
   const reduced = usePrefersReducedMotion();
-  const mainPhotos = pickPhotos(6, 5);
-  const sidePhotos = pickPhotos(5, 31);
+  const pool = usePhotoPool();
+  const mainPhotos = pickFrom(pool, 6, 5);
+  const sidePhotos = pickFrom(pool, 5, 31);
 
   return (
     <Section id={about.id} className="bg-background" containerClassName="max-w-7xl">

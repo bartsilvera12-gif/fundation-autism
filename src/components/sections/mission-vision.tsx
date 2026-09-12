@@ -1,13 +1,16 @@
+"use client";
+
 import { missionVision } from "@/content/site";
 import { Reveal } from "@/components/ui/reveal";
 import { RotatingPhoto } from "@/components/ui/rotating-photo";
-import { pickPhotos } from "@/lib/photos";
+import { usePhotoPool, pickFrom } from "@/lib/use-photo-pool";
 
 export function MissionVision() {
   const { mission, vision } = missionVision;
+  const pool = usePhotoPool();
   const blocks = [
-    { ...mission, photos: pickPhotos(5, 33) },
-    { ...vision, photos: pickPhotos(5, 29) },
+    { ...mission, photos: pickFrom(pool, 5, 33) },
+    { ...vision, photos: pickFrom(pool, 5, 29) },
   ];
 
   return (

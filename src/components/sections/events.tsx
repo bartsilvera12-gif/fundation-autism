@@ -1,8 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { events } from "@/content/site";
-import { pickPhotos } from "@/lib/photos";
+import { events, type EventItem } from "@/content/site";
+import { fetchEvents } from "@/lib/data";
+import { usePhotoPool, pickFrom } from "@/lib/use-photo-pool";
 import { RotatingPhoto } from "@/components/ui/rotating-photo";
 import { usePrefersReducedMotion } from "@/lib/motion";
 
@@ -14,6 +15,18 @@ export function Events() {
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
   const [paused, setPaused] = useState(false);
+  const [items, setItems] = useState<EventItem[]>(events.items);
+  const pool = usePhotoPool();
+
+  useEffect(() => {
+    let alive = true;
+    fetchEvents().then((d) => {
+      if (alive && d && d.length) setItems(d);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   const update = useCallback(() => {
     const el = trackRef.current;
@@ -81,8 +94,8 @@ export function Events() {
         onFocusCapture={() => setPaused(true)}
         onBlurCapture={() => setPaused(false)}
       >
-        {events.items.map((ev, i) => {
-          const photos = pickPhotos(5, EVENT_PHOTOS[i % EVENT_PHOTOS.length]);
+        {items.map((ev, i) => {
+          const photos = pickFrom(pool, 5, EVENT_PHOTOS[i % EVENT_PHOTOS.length]);
           return (
             <article
               key={ev.title}

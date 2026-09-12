@@ -1,5 +1,9 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { project } from "@/content/site";
+import { fetchProjectMedia, type ProjectMedia } from "@/lib/data";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 import { ImageCarousel } from "@/components/ui/image-carousel";
@@ -12,6 +16,21 @@ const ROOM_GRADIENTS = [
 ];
 
 export function Project() {
+  const [renders, setRenders] = useState<ProjectMedia[]>(project.renders);
+  const [plans, setPlans] = useState<ProjectMedia[]>(project.plans);
+
+  useEffect(() => {
+    let alive = true;
+    fetchProjectMedia().then((d) => {
+      if (!alive || !d) return;
+      if (d.renders.length) setRenders(d.renders);
+      if (d.plans.length) setPlans(d.plans);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   return (
     <Section id={project.id} className="bg-surface-muted" containerClassName="max-w-6xl">
       <SectionHeading
@@ -22,7 +41,7 @@ export function Project() {
       />
 
       <Reveal>
-        <ImageCarousel slides={project.renders} />
+        <ImageCarousel slides={renders} />
       </Reveal>
 
       {/* Planos arquitectónicos */}
@@ -31,7 +50,7 @@ export function Project() {
         <p className="mt-1 text-muted-foreground">La propuesta arquitectónica del centro.</p>
       </Reveal>
       <RevealGroup className="mt-6 grid gap-6 md:grid-cols-2">
-        {project.plans.map((plan) => (
+        {plans.map((plan) => (
           <RevealItem key={plan.src}>
             <figure className="overflow-hidden rounded-3xl border border-card-border bg-white shadow-sm">
               <div className="relative aspect-[16/10]">

@@ -163,6 +163,31 @@ export async function fetchGalleryGroups(): Promise<GalleryGroup[] | null> {
   return groups.length ? groups : null;
 }
 
+/* --------------------------------- Proyecto -------------------------------- */
+
+type ProjectRow = {
+  id: string;
+  kind: "render" | "plan";
+  img_url: string;
+  alt: string | null;
+  label: string | null;
+  sort_order: number;
+};
+
+export type ProjectMedia = { src: string; alt: string; label: string };
+
+export async function fetchProjectMedia(): Promise<{ renders: ProjectMedia[]; plans: ProjectMedia[] } | null> {
+  if (!supabase) return null;
+  const { data, error } = await supabase.from("project_media").select("*").order("sort_order");
+  if (error || !data) return null;
+  const rows = data as ProjectRow[];
+  const map = (r: ProjectRow): ProjectMedia => ({ src: r.img_url, alt: r.alt ?? "", label: r.label ?? "" });
+  const renders = rows.filter((r) => r.kind === "render").map(map);
+  const plans = rows.filter((r) => r.kind === "plan").map(map);
+  if (!renders.length && !plans.length) return null;
+  return { renders, plans };
+}
+
 /* --------------------------------- Eventos --------------------------------- */
 
 export type EventRecord = { id: string; title: string; description: string; accent: string };

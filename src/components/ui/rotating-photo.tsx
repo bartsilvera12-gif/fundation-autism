@@ -81,8 +81,8 @@ export function RotatingPhoto({
         alt={alt ?? p.alt}
         fill
         sizes={sizes}
-        placeholder="blur"
-        blurDataURL={p.blurDataURL}
+        placeholder={p.blurDataURL ? "blur" : "empty"}
+        blurDataURL={p.blurDataURL || undefined}
         className={imgClassName}
         priority={priority}
       />
@@ -98,8 +98,8 @@ export function RotatingPhoto({
           alt={idx === i ? (alt ?? p.alt) : ""}
           fill
           sizes={sizes}
-          placeholder="blur"
-          blurDataURL={p.blurDataURL}
+          placeholder={p.blurDataURL ? "blur" : "empty"}
+          blurDataURL={p.blurDataURL || undefined}
           priority={priority && idx === 0}
           className={cn(
             imgClassName,

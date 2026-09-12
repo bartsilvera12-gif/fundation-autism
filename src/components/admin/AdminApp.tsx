@@ -8,11 +8,15 @@ import { ActivitiesManager } from "./ActivitiesManager";
 import { BoardManager } from "./BoardManager";
 import { KidsManager } from "./KidsManager";
 import { GalleryManager } from "./GalleryManager";
+import { EventsManager } from "./EventsManager";
+import { ProjectManager } from "./ProjectManager";
 import { BrandMark } from "@/components/ui/brand-mark";
 
 const TABS = [
   { id: "actividades", label: "Actividades" },
   { id: "comision", label: "Comisión" },
+  { id: "eventos", label: "Eventos" },
+  { id: "proyecto", label: "Proyecto" },
   { id: "divertite", label: "DIVERtite" },
   { id: "galeria", label: "Galería" },
 ] as const;
@@ -82,6 +86,8 @@ export function AdminApp() {
 
       {tab === "actividades" && <ActivitiesManager />}
       {tab === "comision" && <BoardManager />}
+      {tab === "eventos" && <EventsManager />}
+      {tab === "proyecto" && <ProjectManager />}
       {tab === "divertite" && <KidsManager />}
       {tab === "galeria" && <GalleryManager />}
     </div>
