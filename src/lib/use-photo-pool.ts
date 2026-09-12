@@ -27,10 +27,26 @@ export function usePhotoPool(): GalleryPhoto[] {
   return pool;
 }
 
-/** Toma n fotos del pool empezando en offset, con wrap-around. */
-export function pickFrom(pool: GalleryPhoto[], n: number, offset = 0): GalleryPhoto[] {
-  if (pool.length === 0) return [];
+/**
+ * Toma n fotos del pool empezando en offset, con wrap-around.
+ * `orient` filtra por orientación para que la foto calce con el marco y se
+ * recorte lo mínimo (retratos en marcos verticales, apaisadas en horizontales).
+ */
+export function pickFrom(
+  pool: GalleryPhoto[],
+  n: number,
+  offset = 0,
+  orient?: "portrait" | "landscape",
+): GalleryPhoto[] {
+  let src = pool;
+  if (orient) {
+    const filtered = pool.filter((p) =>
+      orient === "portrait" ? p.height >= p.width : p.width >= p.height,
+    );
+    if (filtered.length) src = filtered;
+  }
+  if (src.length === 0) return [];
   const out: GalleryPhoto[] = [];
-  for (let i = 0; i < n; i++) out.push(pool[(offset + i) % pool.length]);
+  for (let i = 0; i < n; i++) out.push(src[(offset + i) % src.length]);
   return out;
 }

@@ -89,8 +89,10 @@ export default function RootLayout({
           >
             Saltar al contenido
           </a>
-          {/* Fondo pastel multicolor animado, global y detrás de todo */}
-          <div aria-hidden="true" className="mesh-global mesh-animated" />
+          {/* Fondo pastel multicolor animado, global y detrás de todo (no en /admin) */}
+          <ChromeGate>
+            <div aria-hidden="true" className="mesh-global mesh-animated" />
+          </ChromeGate>
           <LenisProvider>
             <ChromeGate>
               <ScrollProgress />

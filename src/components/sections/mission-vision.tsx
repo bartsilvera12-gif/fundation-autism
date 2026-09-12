@@ -9,8 +9,8 @@ export function MissionVision() {
   const { mission, vision } = missionVision;
   const pool = usePhotoPool();
   const blocks = [
-    { ...mission, photos: pickFrom(pool, 5, 33) },
-    { ...vision, photos: pickFrom(pool, 5, 29) },
+    { ...mission, photos: pickFrom(pool, 5, 33, "landscape") },
+    { ...vision, photos: pickFrom(pool, 5, 29, "landscape") },
   ];
 
   return (

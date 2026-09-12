@@ -95,7 +95,7 @@ export function Events() {
         onBlurCapture={() => setPaused(false)}
       >
         {items.map((ev, i) => {
-          const photos = pickFrom(pool, 5, EVENT_PHOTOS[i % EVENT_PHOTOS.length]);
+          const photos = pickFrom(pool, 5, EVENT_PHOTOS[i % EVENT_PHOTOS.length], "portrait");
           return (
             <article
               key={ev.title}

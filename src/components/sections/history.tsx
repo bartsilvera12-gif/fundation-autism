@@ -24,7 +24,7 @@ export function History() {
       <div className="mt-6 space-y-16 sm:space-y-24">
         {history.timeline.map((item, i) => {
           const HISTORY_PHOTOS = [17, 19, 22, 48];
-          const photos = pickFrom(pool, 4, HISTORY_PHOTOS[i % HISTORY_PHOTOS.length]);
+          const photos = pickFrom(pool, 4, HISTORY_PHOTOS[i % HISTORY_PHOTOS.length], "landscape");
           const flip = i % 2 === 1;
           return (
             <div

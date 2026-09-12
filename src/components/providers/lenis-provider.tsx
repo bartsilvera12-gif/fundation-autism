@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { usePrefersReducedMotion } from "@/lib/motion";
@@ -12,9 +13,12 @@ import { usePrefersReducedMotion } from "@/lib/motion";
  */
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   const reduced = usePrefersReducedMotion();
+  const pathname = usePathname();
+  const isAdmin = pathname?.startsWith("/admin");
 
   useEffect(() => {
-    if (reduced) return;
+    // En el panel /admin no queremos smooth-scroll (molesta en formularios).
+    if (reduced || isAdmin) return;
 
     const lenis = new Lenis({
       duration: 1.1,
@@ -36,7 +40,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
       gsap.ticker.remove(onRaf);
       lenis.destroy();
     };
-  }, [reduced]);
+  }, [reduced, isAdmin]);
 
   return <>{children}</>;
 }

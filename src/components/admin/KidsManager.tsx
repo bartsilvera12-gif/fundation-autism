@@ -130,9 +130,13 @@ export function ImageGrid({
       ) : (
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {rows.map((r, i) => (
-            <li key={r.id} className="group relative">
+            <li
+              key={r.id}
+              className="group relative"
+              style={{ contentVisibility: "auto", containIntrinsicSize: "220px 300px" }}
+            >
               <div className={`relative ${aspect} overflow-hidden rounded-xl border border-border bg-surface-muted`}>
-                <Image src={r.img_url} alt="" fill sizes="200px" className={objectClass} />
+                <Image src={r.img_url} alt="" fill sizes="200px" loading="lazy" className={objectClass} />
               </div>
               <div className="mt-1.5 flex items-center justify-between gap-1">
                 <div className="flex gap-1">

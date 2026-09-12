@@ -52,50 +52,57 @@ export function AdminApp() {
   if (!session) return <Login />;
 
   return (
-    <div className="mx-auto min-h-screen w-full max-w-5xl px-4 py-8">
-      <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <BrandMark />
-          <span className="rounded-full bg-surface-muted px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-600">
-            Panel
-          </span>
+    <div className="min-h-screen bg-surface text-foreground">
+      {/* Header fijo */}
+      <header className="sticky top-0 z-30 border-b border-border bg-surface/85 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+          <div className="flex items-center gap-3">
+            <BrandMark />
+            <span className="hidden rounded-full bg-surface-muted px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand-600 sm:inline">
+              Panel
+            </span>
+          </div>
+          <div className="flex items-center gap-3 text-sm">
+            <span className="hidden text-muted-foreground md:inline">{session.user.email}</span>
+            <Button variant="ghost" onClick={() => supabase?.auth.signOut()}>
+              Salir
+            </Button>
+          </div>
         </div>
-        <div className="flex items-center gap-3 text-sm">
-          <span className="hidden text-muted-foreground sm:inline">{session.user.email}</span>
-          <Button variant="ghost" onClick={() => supabase?.auth.signOut()}>
-            Salir
-          </Button>
-        </div>
+        {/* Pestañas fijas debajo del header */}
+        <nav className="mx-auto max-w-6xl px-2">
+          <div className="flex gap-1 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {TABS.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setTab(t.id)}
+                className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                  tab === t.id
+                    ? "bg-brand-500 text-white"
+                    : "text-foreground/60 hover:bg-surface-muted hover:text-foreground"
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </nav>
       </header>
 
-      <nav className="mb-8 flex flex-wrap gap-2">
-        {TABS.map((t) => (
-          <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
-            className={`rounded-full px-4 py-2 text-sm font-bold transition-colors ${
-              tab === t.id
-                ? "bg-brand-500 text-white"
-                : "border border-border bg-surface text-foreground/70 hover:bg-surface-muted"
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
-      </nav>
-
-      {tab === "actividades" && <ActivitiesManager />}
-      {tab === "comision" && <BoardManager />}
-      {tab === "eventos" && <EventsManager />}
-      {tab === "proyecto" && <ProjectManager />}
-      {tab === "divertite" && <KidsManager />}
-      {tab === "galeria" && <GalleryManager />}
+      <main className="mx-auto max-w-6xl px-4 py-8">
+        {tab === "actividades" && <ActivitiesManager />}
+        {tab === "comision" && <BoardManager />}
+        {tab === "eventos" && <EventsManager />}
+        {tab === "proyecto" && <ProjectManager />}
+        {tab === "divertite" && <KidsManager />}
+        {tab === "galeria" && <GalleryManager />}
+      </main>
     </div>
   );
 }
 
 function Centered({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-h-screen items-center justify-center px-4">{children}</div>;
+  return <div className="flex min-h-screen items-center justify-center bg-surface px-4">{children}</div>;
 }
 
 function Login() {

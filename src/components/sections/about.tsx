@@ -20,8 +20,8 @@ const HL_GRADIENTS = [
 export function About() {
   const reduced = usePrefersReducedMotion();
   const pool = usePhotoPool();
-  const mainPhotos = pickFrom(pool, 6, 5);
-  const sidePhotos = pickFrom(pool, 5, 31);
+  const mainPhotos = pickFrom(pool, 6, 5, "portrait");
+  const sidePhotos = pickFrom(pool, 5, 31, "portrait");
 
   return (
     <Section id={about.id} className="bg-background" containerClassName="max-w-7xl">
@@ -95,12 +95,6 @@ export function About() {
                 alt=""
               />
             </Parallax>
-            {/* Chip espectro */}
-            <div
-              aria-hidden="true"
-              className="absolute -right-4 top-8 z-10 h-16 w-16 rounded-2xl opacity-90 shadow-lg"
-              style={{ background: "var(--gradient-spectrum)" }}
-            />
           </div>
         </Reveal>
       </div>
