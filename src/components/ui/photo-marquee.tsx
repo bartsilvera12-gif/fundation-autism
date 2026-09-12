@@ -65,8 +65,8 @@ export function PhotoMarquee({
               alt={photo.alt}
               fill
               sizes="360px"
-              placeholder="blur"
-              blurDataURL={photo.blurDataURL}
+              placeholder={photo.blurDataURL ? "blur" : "empty"}
+              blurDataURL={photo.blurDataURL || undefined}
               loading="lazy"
               className="object-cover"
             />

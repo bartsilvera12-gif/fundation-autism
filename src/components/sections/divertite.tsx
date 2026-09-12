@@ -1,16 +1,30 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { divertite } from "@/content/site";
-import { divertiteKids } from "@/content/divertite";
+import { divertiteKids, type KidPhoto } from "@/content/divertite";
+import { fetchDivertiteKids } from "@/lib/data";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal } from "@/components/ui/reveal";
 import { usePrefersReducedMotion } from "@/lib/motion";
 
 export function Divertite() {
   const reduced = usePrefersReducedMotion();
-  const preview = divertiteKids.slice(0, 16);
+  const [kids, setKids] = useState<KidPhoto[]>(divertiteKids);
+
+  useEffect(() => {
+    let alive = true;
+    fetchDivertiteKids().then((d) => {
+      if (alive && d && d.length) setKids(d);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const preview = kids.slice(0, 16);
   const loop = reduced ? preview : [...preview, ...preview];
 
   return (
@@ -39,8 +53,8 @@ export function Divertite() {
                   aria-hidden="true"
                   fill
                   sizes="180px"
-                  placeholder="blur"
-                  blurDataURL={kid.blurDataURL}
+                  placeholder={kid.blurDataURL ? "blur" : "empty"}
+                  blurDataURL={kid.blurDataURL || undefined}
                   className="object-contain"
                   loading="lazy"
                 />

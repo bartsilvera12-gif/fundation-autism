@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { divertite, site } from "@/content/site";
-import { divertiteKids } from "@/content/divertite";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
+import { Reveal } from "@/components/ui/reveal";
+import { DivertiteGrid } from "@/components/sections/divertite-grid";
 
 export const metadata: Metadata = {
   title: "DIVERtite picoTEAndo 4ª edición",
@@ -44,25 +43,8 @@ export default function DivertitePage() {
           </p>
         </Reveal>
 
-        {/* Grilla de protagonistas */}
-        <RevealGroup className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {divertiteKids.map((kid, i) => (
-            <RevealItem key={kid.src}>
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-card-border bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
-                <Image
-                  src={kid.src}
-                  alt={`Protagonista de DIVERtite picoTEAndo 4ª edición`}
-                  fill
-                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 18vw"
-                  placeholder="blur"
-                  blurDataURL={kid.blurDataURL}
-                  loading={i < 10 ? "eager" : "lazy"}
-                  className="object-contain"
-                />
-              </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        {/* Grilla de protagonistas (lee de Supabase) */}
+        <DivertiteGrid />
 
         <Reveal className="mt-14 text-center">
           <a

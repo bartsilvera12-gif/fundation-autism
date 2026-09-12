@@ -5,15 +5,27 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { galleryGroups, type GalleryPhoto } from "@/content/gallery";
 import { gallerySection } from "@/content/site";
+import { fetchGalleryGroups } from "@/lib/data";
 import { Reveal } from "@/components/ui/reveal";
 import { PhotoMarquee } from "@/components/ui/photo-marquee";
 
 export function Gallery() {
+  const [groups, setGroups] = useState(galleryGroups);
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  if (galleryGroups.length === 0) return null;
-  const group = galleryGroups[active];
+  useEffect(() => {
+    let alive = true;
+    fetchGalleryGroups().then((d) => {
+      if (alive && d && d.length) setGroups(d);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  if (groups.length === 0) return null;
+  const group = groups[Math.min(active, groups.length - 1)];
   const photos = group.photos;
 
   const half = Math.ceil(photos.length / 2);
@@ -39,7 +51,7 @@ export function Gallery() {
 
         {/* Selector de año */}
         <Reveal className="mt-8">
-          {galleryGroups.length === 1 ? (
+          {groups.length === 1 ? (
             // Un solo año: etiqueta elegante, sin botón
             <div className="inline-flex items-center gap-2.5 rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground/80">
               <span
@@ -47,8 +59,8 @@ export function Gallery() {
                 className="h-2.5 w-2.5 rounded-full"
                 style={{ background: "var(--gradient-spectrum)" }}
               />
-              Edición {galleryGroups[0].year}
-              <span className="font-normal text-muted-foreground">· {galleryGroups[0].label}</span>
+              Edición {groups[0].year}
+              <span className="font-normal text-muted-foreground">· {groups[0].label}</span>
             </div>
           ) : (
             // Varios años: selector editorial con subrayado del espectro
@@ -57,7 +69,7 @@ export function Gallery() {
               aria-label="Filtrar galería por año"
               className="flex flex-wrap items-end gap-x-8 gap-y-2 border-b border-border"
             >
-              {galleryGroups.map((g, i) => (
+              {groups.map((g, i) => (
                 <button
                   key={g.year}
                   role="tab"
@@ -168,8 +180,8 @@ function Lightbox({
               width={photos[index].width}
               height={photos[index].height}
               sizes="90vw"
-              placeholder="blur"
-              blurDataURL={photos[index].blurDataURL}
+              placeholder={photos[index].blurDataURL ? "blur" : "empty"}
+              blurDataURL={photos[index].blurDataURL || undefined}
               className="max-h-[85vh] w-auto rounded-2xl object-contain"
             />
           </motion.div>
