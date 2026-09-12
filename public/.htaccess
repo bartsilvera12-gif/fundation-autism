@@ -1,0 +1,63 @@
+# ATYPICAL Py — sitio estático (Next.js export) en Hostinger / Apache
+# ---------------------------------------------------------------------------
+
+# Página 404 propia (Next exporta 404.html)
+ErrorDocument 404 /404.html
+
+# Forzar HTTPS (Hostinger ya sirve SSL; esto redirige http -> https)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Con trailingSlash, cada página es /ruta/index.html — Apache resuelve el
+# directorio con su index automáticamente (DirectorySlash On por defecto).
+DirectoryIndex index.html
+
+# Compresión ------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/rss+xml
+  AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2
+</IfModule>
+
+# Caché -----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Assets con hash en el nombre: caché larga e inmutable
+  <FilesMatch "\.(js|css|woff2?|ttf|otf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Imágenes y media: caché larga
+  <FilesMatch "\.(webp|avif|jpe?g|png|gif|svg|ico|mp4|webm)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  # HTML: siempre revalidar (así un redeploy se ve enseguida)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# La carpeta /_next/static tiene nombres con hash: caché máxima
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Seguridad básica ------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# No listar directorios
+Options -Indexes
