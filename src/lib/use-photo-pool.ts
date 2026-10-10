@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { GalleryPhoto } from "@/content/gallery";
-import { allPhotos } from "@/lib/photos";
+import { allPhotos, interleaveGroups } from "@/lib/photos";
 import { fetchGalleryGroups } from "@/lib/data";
 
 /**
@@ -17,7 +17,7 @@ export function usePhotoPool(): GalleryPhoto[] {
     let alive = true;
     fetchGalleryGroups().then((groups) => {
       if (!alive || !groups) return;
-      const flat = groups.flatMap((g) => g.photos);
+      const flat = interleaveGroups(groups);
       if (flat.length) setPool(flat);
     });
     return () => {

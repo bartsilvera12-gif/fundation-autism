@@ -241,7 +241,7 @@ export async function fetchRegistrations(): Promise<RegistrationRecord[] | null>
 
 /* --------------------------------- Eventos --------------------------------- */
 
-export type EventRecord = { id: string; title: string; description: string; accent: string };
+export type EventRecord = { id: string; title: string; description: string; accent: string; img?: string };
 
 export async function fetchEvents(): Promise<EventRecord[] | null> {
   if (!supabase) return null;
@@ -250,10 +250,11 @@ export async function fetchEvents(): Promise<EventRecord[] | null> {
     .select("*")
     .order("sort_order", { ascending: true });
   if (error || !data) return null;
-  return (data as { id: string; title: string; description: string | null; accent: string | null }[]).map((r) => ({
+  return (data as { id: string; title: string; description: string | null; accent: string | null; img_url: string | null }[]).map((r) => ({
     id: r.id,
     title: r.title,
     description: r.description ?? "",
     accent: r.accent ?? "var(--color-spectrum-blue)",
+    img: r.img_url ?? undefined,
   }));
 }

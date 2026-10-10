@@ -12,10 +12,12 @@ const EVENTS_DIR = path.join(ROOT, "public", "images", "eventos");
 const OUT_FILE = path.join(ROOT, "src", "content", "gallery.ts");
 const IMG_RE = /\.(webp|jpe?g|png|avif)$/i;
 
-// Etiquetas legibles por año (editable)
-const YEAR_LABELS = {
-  2025: "Picoteando por Lean",
-  2026: "DiverTITE PicoTEAndo",
+// Cada carpeta de public/images/eventos/<carpeta>/ es una edición del evento.
+// `year` es lo que se muestra en la pestaña de la galería; `label`, el nombre.
+const EDITIONS = {
+  "edicion-1": { year: "1ª edición", label: "DIVERtite picoTEAndo" },
+  "edicion-2": { year: "2ª edición", label: "DIVERtite picoTEAndo" },
+  "edicion-3": { year: "3ª edición", label: "DIVERtite picoTEAndo" },
 };
 
 async function blurFor(file) {
@@ -27,6 +29,7 @@ async function blurFor(file) {
 }
 
 async function processYear(year) {
+  const ed = EDITIONS[year] ?? { year, label: year };
   const dir = path.join(EVENTS_DIR, year);
   if (!existsSync(dir)) return null;
   const files = (await readdir(dir)).filter((f) => IMG_RE.test(f)).sort();
@@ -40,11 +43,11 @@ async function processYear(year) {
       src: `/images/eventos/${year}/${name}`,
       width: meta.width ?? 1600,
       height: meta.height ?? 1200,
-      alt: `Momento del evento ${YEAR_LABELS[year] ?? year} de la Fundación ATYPICAL Py`,
+      alt: `Momento de DIVERtite picoTEAndo (${ed.year}) de la Fundación ATYPICAL Py`,
       blurDataURL: await blurFor(file),
     });
   }
-  return { year, label: YEAR_LABELS[year] ?? year, photos };
+  return { year: ed.year, label: ed.label, photos };
 }
 
 async function main() {

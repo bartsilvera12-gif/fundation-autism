@@ -195,7 +195,7 @@ export const objectives: {
     {
       title: "Crear un espacio de desarrollo integral con equipo multidisciplinario",
       methods: [
-        "Centro con 3 consultorios (terapia ocupacional, fonoaudiología, psicología)",
+        "Centro con consultorios de psicología, fonoaudiología, terapia ocupacional, psicopedagogía, neurología, psiquiatría y nutrición",
         "Buscar organizaciones que apoyen la causa",
         "Generar ingresos con actividades para cubrir costos operativos",
         "Alianzas con instituciones públicas y privadas",
@@ -214,27 +214,32 @@ export const history: {
 } = {
   id: "historia",
   title: "Nuestra historia",
-  lead: "Un viaje que nació del amor, la escucha y la comunidad. Desde su origen, Atypical Py busca acompañar a familias neurodivergentes con información, apoyo y experiencias que generan inclusión real. Nuestro camino combina educación, empatía y acción comunitaria.",
+  lead: "Un viaje que nació del amor, la escucha y la comunidad. Desde 2023 acompañamos a familias neurodivergentes con información, apoyo y experiencias que generan inclusión real, y hoy estamos a un paso de inaugurar nuestro propio centro.",
   timeline: [
     {
-      year: "El origen",
-      title: "Nace del amor y la escucha",
-      text: "Un grupo de familias de personas neurodivergentes se une para transformar la vivencia personal en apoyo comunitario.",
+      year: "2023",
+      title: "Un gesto de amor que se volvió movimiento",
+      text: "Impulsados por el amor, la esperanza y la unión de amigos y familiares, hicimos la primera actividad solidaria para cubrir las terapias de 1 niño con autismo.",
     },
     {
-      year: "Comunidad",
-      title: "Primeros encuentros",
-      text: "Reuniones, charlas y jornadas empiezan a tejer una red de acompañamiento entre familias, docentes y profesionales.",
+      year: "2024",
+      title: "De 1 a 5 niños",
+      text: "Extendimos la ayuda a 5 niños con diferentes condiciones neurodivergentes, dándoles acceso a terapias fundamentales para su desarrollo.",
     },
     {
-      year: "Acción",
-      title: "Eventos que visibilizan",
-      text: "Picoteando por Lean, DiverTITE PicoTEAndo y más: espacios que combinan educación, empatía y fiesta por la neurodiversidad.",
+      year: "2025",
+      title: "23 niños con sus terapias",
+      text: "Gracias al esfuerzo de voluntarios y familias comprometidas, hoy 23 niños reciben sus terapias: cambiamos realidades y generamos oportunidades.",
     },
     {
-      year: "El futuro",
-      title: "Un centro de desarrollo integral",
-      text: "El sueño de un espacio propio con equipo multidisciplinario para acompañar a cada niño desde la edad temprana.",
+      year: "29 dic. 2025",
+      title: "Somos Fundación ATYPICAL Paraguay",
+      text: "Por el Decreto Nº 5216, firmado por el presidente de la República, se reconocieron nuestros estatutos sociales: la primera fundación neurodivergente del país.",
+    },
+    {
+      year: "Hoy",
+      title: "A un paso de nuestro propio centro",
+      text: "Un espacio de apoyo, aprendizaje, desarrollo, contención y esperanza para muchas familias. Porque cuando una comunidad comprende, acompaña e incluye, transforma vidas.",
     },
   ],
 };
@@ -242,37 +247,42 @@ export const history: {
 export const historyPage: {
   title: string;
   lead: string;
+  stats: { value: number; label: string; year: string }[];
   sections: { heading: string; paragraphs: string[] }[];
 } = {
   title: "Nuestra historia",
   lead: "Un viaje que nació del amor, la escucha y la comunidad.",
+  stats: [
+    { value: 1, label: "niño con sus terapias cubiertas", year: "2023" },
+    { value: 5, label: "niños con condiciones neurodivergentes", year: "2024" },
+    { value: 23, label: "niños que hoy reciben sus terapias", year: "2025" },
+  ],
   sections: [
     {
-      heading: "El comienzo: del amor a la acción",
+      heading: "2023: el comienzo",
       paragraphs: [
-        "Atypical Py nació de la vivencia de familias que, ante un diagnóstico, no encontraron en su entorno la información, el acompañamiento ni la empatía que necesitaban. En vez de resignarse, decidieron transformar esa experiencia en comunidad.",
-        "Lo que empezó como un grupo de padres y madres compartiendo dudas y esperanzas se convirtió en una red que hoy acompaña a muchas otras familias que transitan el mismo camino.",
+        "Nuestra historia comenzó en el año 2023, impulsada por el amor, la esperanza y la unión de amigos y familiares. La primera actividad solidaria se realizó con el objetivo de cubrir las terapias de 1 niño diagnosticado con autismo.",
+        "Lo que empezó como un gesto de apoyo, se transformó en un movimiento lleno de compromiso y solidaridad.",
       ],
     },
     {
-      heading: "Escuchar antes que etiquetar",
+      heading: "2024: de 1 a 5 niños",
       paragraphs: [
-        "Desde el principio entendimos que la neurodiversidad no es un problema a corregir, sino una forma distinta —y valiosa— de percibir y habitar el mundo. Un diagnóstico no es un pronóstico de vida: con los apoyos adecuados, cada persona puede alcanzar logros significativos.",
-        "Por eso nuestro trabajo se apoya en tres pilares: educar, acompañar y visibilizar. Educar a padres, docentes y comunidad; acompañar emocionalmente a las familias; y visibilizar las condiciones neurodivergentes para construir una cultura del respeto.",
+        "En el año 2024, logramos extender esta ayuda a 5 niños con diferentes condiciones neurodivergentes, brindándoles acceso a terapias fundamentales para su desarrollo.",
       ],
     },
     {
-      heading: "Comunidad en acción",
+      heading: "2025: 23 niños, y un decreto histórico",
       paragraphs: [
-        "Con el tiempo, los encuentros se multiplicaron. Charlas, jornadas de capacitación y eventos como Picoteando por Lean y DiverTITE PicoTEAndo se volvieron espacios donde la neurodiversidad se celebra en familia, sin miedo y sin prejuicios.",
-        "Cada evento es también una forma de sostener la causa: generar conciencia, tejer alianzas y abrir oportunidades para las personas neurodivergentes y sus familias.",
+        "Para el año 2025, gracias al esfuerzo de muchas personas, voluntarios y familias comprometidas, alcanzamos a 23 niños que actualmente reciben sus terapias, cambiando realidades y generando oportunidades.",
+        "El 29 de diciembre de 2025 marcó un momento histórico para nosotros: mediante el Decreto Nº 5216, firmado por el presidente de la República, se reconocieron nuestros estatutos sociales y oficialmente pasamos a ser la FUNDACIÓN ATYPICAL PARAGUAY, convirtiéndonos en la primera fundación neurodivergente del país.",
       ],
     },
     {
-      heading: "Hacia el futuro: un centro propio",
+      heading: "Hoy: a un paso de nuestro centro",
       paragraphs: [
-        "Nuestro sueño más grande es un centro de desarrollo integral con un equipo multidisciplinario —terapia ocupacional, fonoaudiología y psicología— que acompañe a cada niño desde la edad temprana.",
-        "Ese centro será posible con el apoyo de personas, instituciones y empresas que crean, como nosotros, que la inclusión plena no es una utopía, sino una construcción colectiva. Sumate: juntos podemos hacer la diferencia.",
+        "Hoy estamos a un paso de inaugurar nuestro propio centro, un espacio de apoyo, aprendizaje, desarrollo, contención y esperanza para muchas familias.",
+        "Porque creemos que cuando una comunidad comprende, acompaña e incluye… transforma vidas. Sumate: juntos podemos hacer la diferencia.",
       ],
     },
   ],
@@ -322,10 +332,11 @@ export const project: {
   renders: ProjectRender[];
   plans: ProjectRender[];
   rooms: ConsultingRoom[];
+  team: { title: string; text: string };
 } = {
   id: "proyecto",
   title: "El proyecto: un centro de desarrollo integral",
-  lead: "Un espacio propio, pensado con y para las familias, con un equipo multidisciplinario que acompaña a cada niño en su desarrollo.",
+  lead: "Un espacio propio, pensado con y para las familias, con siete servicios y un equipo multidisciplinario que acompaña a cada niño en su desarrollo.",
   renders: [
     {
       src: "/images/proyecto/render-terapia.webp",
@@ -367,27 +378,46 @@ export const project: {
   ],
   rooms: [
     {
-      name: "Terapia ocupacional",
-      description:
-        "Acompañamiento para el desarrollo de la autonomía, la integración sensorial y las habilidades de la vida diaria.",
+      name: "Psicología",
+      description: "Contención emocional para niños y familias, fortaleciendo el bienestar y los vínculos.",
     },
     {
       name: "Fonoaudiología",
-      description:
-        "Apoyo a la comunicación, el lenguaje y el habla, respetando los tiempos y formas de cada persona.",
+      description: "Apoyo a la comunicación, el lenguaje y el habla, respetando los tiempos y formas de cada persona.",
     },
     {
-      name: "Psicología",
-      description:
-        "Contención emocional para niños y familias, fortaleciendo el bienestar y los vínculos.",
+      name: "Terapia ocupacional",
+      description: "Desarrollo de la autonomía, la integración sensorial y las habilidades de la vida diaria.",
+    },
+    {
+      name: "Psicopedagogía",
+      description: "Acompañamiento en los procesos de aprendizaje, con estrategias a la medida de cada niño.",
+    },
+    {
+      name: "Neurología",
+      description: "Evaluación y seguimiento del neurodesarrollo por profesionales especializados.",
+    },
+    {
+      name: "Psiquiatría",
+      description: "Atención de la salud mental, con un abordaje cuidadoso y en equipo con las familias.",
+    },
+    {
+      name: "Nutrición",
+      description: "Orientación alimentaria pensada para las necesidades y particularidades de cada niño.",
     },
   ],
+  team: {
+    title: "Nuestro plantel profesional",
+    text: "Muy pronto vas a conocer al equipo de profesionales que acompañará a cada niño y a su familia en el centro.",
+  },
 };
 
 export type EventItem = {
   title: string;
   description: string;
   accent: string;
+  /** Portada del programa (opcional). Sin portada, la tarjeta rota fotos de la galería. */
+  img?: string;
 };
 
 export const events: { id: string; title: string; items: EventItem[] } = {
@@ -396,18 +426,21 @@ export const events: { id: string; title: string; items: EventItem[] } = {
   items: [
     {
       title: "Programa Neurodiversidad en Acción",
+      img: "/images/programas/neurodiversidad-en-accion.webp",
       description:
         "Espacio de encuentro, aprendizaje y participación, donde la comunidad se une para visibilizar.",
       accent: "var(--color-spectrum-blue)",
     },
     {
       title: "Red de Apoyo",
+      img: "/images/programas/red-de-apoyo.webp",
       description:
         "Espacio continuo de acompañamiento para familias y personas neurodivergentes en una comunidad de soporte.",
       accent: "var(--color-spectrum-teal)",
     },
     {
       title: "La Tiendita de Atypical",
+      img: "/images/programas/la-tiendita.webp",
       description:
         "Mercado solidario con productos y apoyos que impulsan nuestra misión y generan oportunidades de empleo.",
       accent: "var(--color-spectrum-green)",
@@ -419,7 +452,8 @@ export const events: { id: string; title: string; items: EventItem[] } = {
       accent: "var(--color-spectrum-orange)",
     },
     {
-      title: "DiverTITE PicoTEAndo",
+      title: "DIVERtite picoTEAndo",
+      img: "/images/programas/divertite-picoteando.webp",
       description:
         "Nuestro evento anual más esperado, una verdadera fiesta familiar por la neurodiversidad.",
       accent: "var(--color-spectrum-purple)",

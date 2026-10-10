@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
+import { uploadImage } from "@/lib/admin";
 import { Button, Card, ColorSwatches, Field, Input, Modal, Textarea, Toast } from "./ui";
 
 type Row = {
@@ -9,6 +10,7 @@ type Row = {
   title: string;
   description: string | null;
   accent: string | null;
+  img_url: string | null;
   sort_order: number;
 };
 
@@ -21,8 +23,8 @@ const ACCENTS = [
   { label: "Rojo", value: "var(--color-spectrum-red)" },
 ];
 
-type FormState = { title: string; description: string; accent: string };
-const EMPTY: FormState = { title: "", description: "", accent: ACCENTS[0].value };
+type FormState = { title: string; description: string; accent: string; img: string };
+const EMPTY: FormState = { title: "", description: "", accent: ACCENTS[0].value, img: "" };
 
 export function EventsManager() {
   const [rows, setRows] = useState<Row[]>([]);
@@ -31,6 +33,7 @@ export function EventsManager() {
   const [editing, setEditing] = useState<Row | null>(null);
   const [form, setForm] = useState<FormState>(EMPTY);
   const [busy, setBusy] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
   const flash = (kind: "ok" | "err", text: string) => {
     setMsg({ kind, text });
@@ -56,15 +59,29 @@ export function EventsManager() {
   }
   function startEdit(r: Row) {
     setEditing(r);
-    setForm({ title: r.title, description: r.description ?? "", accent: r.accent ?? ACCENTS[0].value });
+    setForm({ title: r.title, description: r.description ?? "", accent: r.accent ?? ACCENTS[0].value, img: r.img_url ?? "" });
     setOpen(true);
+  }
+
+  async function onCover(e: React.ChangeEvent<HTMLInputElement>) {
+    const f = e.target.files?.[0];
+    e.target.value = "";
+    if (!f) return;
+    setUploading(true);
+    try {
+      const url = await uploadImage(f, "programas");
+      setForm((v) => ({ ...v, img: url }));
+    } catch (err) {
+      flash("err", "No se pudo subir la imagen: " + (err instanceof Error ? err.message : "error"));
+    }
+    setUploading(false);
   }
 
   async function save(e: React.FormEvent) {
     e.preventDefault();
     if (!supabase) return;
     setBusy(true);
-    const payload = { title: form.title, description: form.description || null, accent: form.accent };
+    const payload = { title: form.title, description: form.description || null, accent: form.accent, img_url: form.img || null };
     const res = editing
       ? await supabase.from("events").update(payload).eq("id", editing.id)
       : await supabase.from("events").insert({ ...payload, sort_order: rows.length });
@@ -147,6 +164,23 @@ export function EventsManager() {
           </Field>
           <Field label="Descripción">
             <Textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
+          </Field>
+          <Field label="Portada" hint="Opcional. Se muestra completa, sin recortar. Sin portada, la tarjeta rota fotos de la galería.">
+            <div className="flex items-center gap-3">
+              {form.img ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={form.img} alt="" className="h-20 w-16 rounded-lg border border-border object-cover" />
+              ) : null}
+              <label className="inline-flex cursor-pointer items-center rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold hover:bg-surface-muted">
+                {uploading ? "Subiendo…" : form.img ? "Cambiar imagen" : "Subir imagen"}
+                <input type="file" accept="image/*" hidden onChange={onCover} disabled={uploading} />
+              </label>
+              {form.img ? (
+                <Button type="button" variant="ghost" onClick={() => setForm({ ...form, img: "" })}>
+                  Quitar
+                </Button>
+              ) : null}
+            </div>
           </Field>
           <Field label="Color">
             <ColorSwatches value={form.accent} onChange={(v) => setForm({ ...form, accent: v })} options={ACCENTS} />

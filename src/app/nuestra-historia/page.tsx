@@ -44,6 +44,21 @@ export default function NuestraHistoriaPage() {
           </p>
         </Reveal>
 
+        <Reveal className="mt-10">
+          <dl className="grid grid-cols-3 gap-3 sm:gap-5">
+            {historyPage.stats.map((st) => (
+              <div
+                key={st.year}
+                className="rounded-3xl border border-card-border bg-card p-4 text-center shadow-sm sm:p-6"
+              >
+                <dd className="font-display text-4xl font-black text-brand-600 sm:text-6xl">{st.value}</dd>
+                <dt className="mt-1 text-pretty text-xs text-muted-foreground sm:text-sm">{st.label}</dt>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-500">{st.year}</p>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+
         <div className="mt-12 space-y-12">
           {historyPage.sections.map((sec) => (
             <Reveal key={sec.heading} as="section">

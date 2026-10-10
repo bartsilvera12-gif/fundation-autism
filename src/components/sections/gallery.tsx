@@ -6,11 +6,12 @@ import { AnimatePresence, motion } from "motion/react";
 import { galleryGroups, type GalleryPhoto } from "@/content/gallery";
 import { gallerySection } from "@/content/site";
 import { fetchGalleryGroups } from "@/lib/data";
+import { interleaveGroups } from "@/lib/photos";
 import { Reveal } from "@/components/ui/reveal";
 import { PhotoMarquee } from "@/components/ui/photo-marquee";
 
 export function Gallery() {
-  const [groups, setGroups] = useState(galleryGroups);
+  const [editions, setGroups] = useState(galleryGroups);
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
@@ -24,6 +25,11 @@ export function Gallery() {
     };
   }, []);
 
+  // Con varias ediciones, la primera pestaña mezcla las fotos de todas.
+  const groups =
+    editions.length > 1
+      ? [{ year: "Todas", label: "Las ediciones, mezcladas", photos: interleaveGroups(editions) }, ...editions]
+      : editions;
   if (groups.length === 0) return null;
   const group = groups[Math.min(active, groups.length - 1)];
   const photos = group.photos;
@@ -59,7 +65,7 @@ export function Gallery() {
                 className="h-2.5 w-2.5 rounded-full"
                 style={{ background: "var(--gradient-spectrum)" }}
               />
-              Edición {groups[0].year}
+              {groups[0].year}
               <span className="font-normal text-muted-foreground">· {groups[0].label}</span>
             </div>
           ) : (

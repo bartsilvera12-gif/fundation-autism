@@ -1,7 +1,20 @@
-import { galleryGroups, type GalleryPhoto } from "@/content/gallery";
+import { galleryGroups, type GalleryGroup, type GalleryPhoto } from "@/content/gallery";
 
-/** Todas las fotos (aplanadas), fuente de imágenes para todo el sitio. */
-export const allPhotos: GalleryPhoto[] = galleryGroups.flatMap((g) => g.photos);
+/**
+ * Aplana los grupos intercalándolos (1ª, 2ª, 3ª edición, 1ª, 2ª, …) para que
+ * cualquier tramo del pool mezcle fotos de todas las ediciones.
+ */
+export function interleaveGroups(groups: GalleryGroup[]): GalleryPhoto[] {
+  const out: GalleryPhoto[] = [];
+  const max = Math.max(0, ...groups.map((g) => g.photos.length));
+  for (let i = 0; i < max; i++) {
+    for (const g of groups) if (i < g.photos.length) out.push(g.photos[i]);
+  }
+  return out;
+}
+
+/** Todas las fotos (intercaladas por edición), fuente de imágenes para todo el sitio. */
+export const allPhotos: GalleryPhoto[] = interleaveGroups(galleryGroups);
 
 /** Devuelve n fotos empezando en offset, con wrap-around si faltan. */
 export function pickPhotos(n: number, offset = 0): GalleryPhoto[] {

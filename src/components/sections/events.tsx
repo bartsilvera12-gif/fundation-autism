@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { events, type EventItem } from "@/content/site";
 import { fetchEvents } from "@/lib/data";
@@ -95,35 +96,50 @@ export function Events() {
         onBlurCapture={() => setPaused(false)}
       >
         {items.map((ev, i) => {
-          const photos = pickFrom(pool, 5, EVENT_PHOTOS[i % EVENT_PHOTOS.length], "portrait");
+          const photos = ev.img ? [] : pickFrom(pool, 5, EVENT_PHOTOS[i % EVENT_PHOTOS.length], "portrait");
           return (
             <article
               key={ev.title}
-              className="relative flex aspect-[3/4] w-[80vw] shrink-0 snap-center flex-col justify-end overflow-hidden rounded-[2rem] sm:aspect-[4/5] sm:w-[22rem] md:w-[24rem]"
+              className="relative flex w-[80vw] shrink-0 snap-center flex-col overflow-hidden rounded-[2rem] bg-white/[0.06] ring-1 ring-white/10 sm:w-[22rem] md:w-[24rem]"
             >
-              <RotatingPhoto
-                photos={photos}
-                interval={5200}
-                sizes="(max-width: 768px) 80vw, 24rem"
-                alt=""
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(8,12,22,0.92) 0%, rgba(8,12,22,0.35) 55%, rgba(8,12,22,0.15) 100%)",
-                }}
-              />
-              <div
-                aria-hidden="true"
-                className="absolute left-6 top-6 h-1.5 w-14 rounded-full"
-                style={{ background: ev.accent }}
-              />
-              <div className="relative p-6 sm:p-7">
-                <h3 className="font-display text-2xl font-black leading-tight sm:text-[1.7rem]">
+              {/* Portada completa (sin recorte) o, si no hay, fotos rotativas */}
+              <div className="relative aspect-[4/5] w-full bg-ink">
+                {ev.img ? (
+                  <Image
+                    src={ev.img}
+                    alt={`Portada: ${ev.title}`}
+                    fill
+                    sizes="(max-width: 768px) 80vw, 24rem"
+                    className="object-contain"
+                  />
+                ) : (
+                  <>
+                    <RotatingPhoto
+                      photos={photos}
+                      interval={5200}
+                      sizes="(max-width: 768px) 80vw, 24rem"
+                      alt=""
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(8,12,22,0.55) 0%, rgba(8,12,22,0) 45%)",
+                      }}
+                    />
+                  </>
+                )}
+                <div
+                  aria-hidden="true"
+                  className="absolute left-6 top-0 h-1.5 w-14 rounded-b-full"
+                  style={{ background: ev.accent }}
+                />
+              </div>
+              <div className="p-5 sm:p-6">
+                <h3 className="font-display text-xl font-black leading-tight sm:text-2xl">
                   {ev.title}
                 </h3>
-                <p className="mt-2.5 text-pretty text-white/80">{ev.description}</p>
+                <p className="mt-2 text-pretty text-sm text-white/75 sm:text-base">{ev.description}</p>
               </div>
             </article>
           );
