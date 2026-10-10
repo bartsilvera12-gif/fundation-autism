@@ -20,19 +20,19 @@ export function Footer() {
 
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-foreground">Contacto</h3>
-          <ul className="space-y-2 text-sm text-muted-foreground">
+          <ul className="text-sm text-muted-foreground">
             <li>
-              <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-brand-600">
+              <a href={site.whatsapp.href} target="_blank" rel="noopener noreferrer" className="inline-block py-1.5 transition-colors hover:text-brand-600">
                 WhatsApp {site.whatsapp.number}
               </a>
             </li>
             <li>
-              <a href={site.social.instagram.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-brand-600">
+              <a href={site.social.instagram.href} target="_blank" rel="noopener noreferrer" className="inline-block py-1.5 transition-colors hover:text-brand-600">
                 Instagram {site.social.instagram.handle}
               </a>
             </li>
             <li>
-              <a href={site.social.tiktok.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-brand-600">
+              <a href={site.social.tiktok.href} target="_blank" rel="noopener noreferrer" className="inline-block py-1.5 transition-colors hover:text-brand-600">
                 TikTok {site.social.tiktok.handle}
               </a>
             </li>

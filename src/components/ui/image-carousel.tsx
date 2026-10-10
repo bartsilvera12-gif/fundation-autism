@@ -92,7 +92,7 @@ export function ImageCarousel({
 
       {/* Dots */}
       {count > 1 && (
-        <div className="mt-5 flex items-center justify-center gap-2" role="tablist" aria-label="Seleccionar render">
+        <div className="mt-3 flex items-center justify-center" role="tablist" aria-label="Seleccionar render">
           {slides.map((s, i) => (
             <button
               key={i}
@@ -100,10 +100,14 @@ export function ImageCarousel({
               aria-selected={i === index}
               aria-label={s.label}
               onClick={() => setIndex(i)}
-              className={`h-2.5 rounded-full transition-all ${
-                i === index ? "w-7 bg-brand-500" : "w-2.5 bg-border hover:bg-brand-300"
-              }`}
-            />
+              className="group/dot flex h-8 items-center justify-center px-1"
+            >
+              <span
+                className={`block h-2.5 rounded-full transition-all ${
+                  i === index ? "w-7 bg-brand-500" : "w-2.5 bg-border group-hover/dot:bg-brand-300"
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}

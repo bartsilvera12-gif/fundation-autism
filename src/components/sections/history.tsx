@@ -65,7 +65,7 @@ export function History() {
       <Reveal className="mt-14">
         <a
           href="/nuestra-historia"
-          className="group inline-flex items-center gap-2 text-lg font-bold text-brand-600"
+          className="group inline-flex items-center gap-2 py-2 text-lg font-bold text-brand-600"
         >
           Leé nuestra historia completa
           <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

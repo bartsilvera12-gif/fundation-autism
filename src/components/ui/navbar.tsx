@@ -28,8 +28,11 @@ export function Navbar() {
   // Bloquea el scroll del body cuando el menú móvil está abierto
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    // Marca para ocultar el botón flotante de WhatsApp mientras el menú está abierto
+    document.body.toggleAttribute("data-menu-open", open);
     return () => {
       document.body.style.overflow = "";
+      document.body.removeAttribute("data-menu-open");
     };
   }, [open]);
 
@@ -108,7 +111,7 @@ export function Navbar() {
         className="lg:hidden"
       >
         <div className="mx-auto mt-2 max-w-6xl px-4">
-          <ul className="flex flex-col gap-1 rounded-3xl border border-border bg-surface p-3 shadow-xl">
+          <ul className="flex max-h-[calc(100dvh-6rem)] flex-col gap-1 overflow-y-auto overscroll-contain rounded-3xl border border-border bg-surface p-3 shadow-xl">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link

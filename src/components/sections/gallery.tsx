@@ -73,7 +73,7 @@ export function Gallery() {
             <div
               role="tablist"
               aria-label="Filtrar galería por año"
-              className="flex flex-wrap items-end gap-x-8 gap-y-2 border-b border-border"
+              className="-mx-5 flex items-end gap-x-5 overflow-x-auto border-b border-border px-5 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:gap-x-8 sm:px-0 [&::-webkit-scrollbar]:hidden"
             >
               {groups.map((g, i) => (
                 <button
@@ -81,7 +81,7 @@ export function Gallery() {
                   role="tab"
                   aria-selected={i === active}
                   onClick={() => setActive(i)}
-                  className={`relative -mb-px pb-3 text-lg font-bold transition-colors sm:text-xl ${
+                  className={`relative -mb-px shrink-0 whitespace-nowrap pb-3 pt-2.5 text-base font-bold transition-colors sm:text-xl ${
                     i === active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >

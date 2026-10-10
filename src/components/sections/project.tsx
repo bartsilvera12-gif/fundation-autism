@@ -83,21 +83,23 @@ export function Project() {
       <RevealGroup className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {project.rooms.map((room, i) => (
           <RevealItem key={room.name} className="h-full">
-            <div className="group h-full rounded-3xl border border-card-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+            <div className="group flex h-full items-start gap-4 rounded-3xl border border-card-border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:block sm:p-6">
               <span
                 aria-hidden="true"
-                className="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl shadow-lg transition-transform duration-300 group-hover:scale-110"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-xl shadow-lg transition-transform duration-300 group-hover:scale-110 sm:h-14 sm:w-14 sm:text-2xl"
                 style={{ background: ROOM_GRADIENTS[i % ROOM_GRADIENTS.length] }}
               >
                 {ROOM_ICONS[i % ROOM_ICONS.length]}
               </span>
-              <h3 className="font-display mt-4 text-xl font-black">{room.name}</h3>
-              <p className="mt-2 text-pretty text-sm text-muted-foreground">{room.description}</p>
+              <div className="min-w-0">
+                <h3 className="font-display text-lg font-black sm:mt-4 sm:text-xl">{room.name}</h3>
+                <p className="mt-1.5 text-pretty text-sm text-muted-foreground sm:mt-2">{room.description}</p>
+              </div>
             </div>
           </RevealItem>
         ))}
         {/* Espacio reservado para el plantel profesional */}
-        <RevealItem className="h-full sm:col-span-2 lg:col-span-1">
+        <RevealItem className="h-full">
           <div className="flex h-full flex-col justify-center rounded-3xl border-2 border-dashed border-brand-500/40 bg-brand-500/5 p-6">
             <span aria-hidden="true" className="text-3xl">👩‍⚕️👨‍⚕️</span>
             <h3 className="font-display mt-3 text-xl font-black">{project.team.title}</h3>

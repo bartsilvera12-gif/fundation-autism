@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Oculta el botón "N" de Next.js que aparece solo en desarrollo.
+  devIndicators: false,
   // Export estático → genera carpeta out/ subible a Hostinger (sin Node).
   output: "export",
   // URLs como /nuestra-historia/ resuelven a index.html en Apache/estático.
