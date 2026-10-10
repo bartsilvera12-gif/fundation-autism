@@ -60,7 +60,7 @@ El centro de desarrollo integral. Renders arquitectónicos: vista frontal, vista
 - **Red de Apoyo:** Espacio continuo de acompañamiento para familias y personas neurodivergentes en una comunidad de soporte.
 - **La Tiendita de Atypical:** Mercado solidario con productos y apoyos que impulsan nuestra misión y generan oportunidades de empleo.
 - **Lomiteada:** Encuentros creativos donde compartimos experiencias, recursos y actividades que fortalecen la inclusión.
-- **DiverTITE PicoTEAndo:** Nuestro evento anual más esperado, una verdadera fiesta familiar por la neurodiversidad.
+- **DIVERtite picoTEAndo:** Nuestro evento anual más esperado, una verdadera fiesta familiar por la neurodiversidad.
 - **Atypical RUN 2026:** Una corrida que no es solo deportiva: es un espacio para generar conciencia, comunidad y oportunidades.
 
 ## Frase inspiracional
