@@ -47,13 +47,144 @@ export const nav: NavLink[] = [
   { label: "Misión", href: "/#mision-vision" },
   { label: "Objetivos", href: "/#objetivos" },
   { label: "Comisión", href: "/comision" },
+  { label: "Socios", href: "/socios" },
   { label: "Historia", href: "/#historia" },
   { label: "Proyecto", href: "/#proyecto" },
   { label: "Eventos", href: "/#eventos" },
   { label: "Actividades", href: "/actividades" },
-  { label: "DIVERtite", href: "/divertite-picoteando" },
+  { label: "DIVERtite picoTEAndo", href: "/divertite-picoteando" },
   { label: "Contacto", href: "/#contacto" },
 ];
+
+export type MemberKind = {
+  title: string;
+  summary: string;
+  rights: string[];
+  duties: string[];
+  accent: string;
+};
+
+/** Categorías de socios y padrinos de la Fundación (según su reglamento). */
+/**
+ * Menú de escritorio, compacto: un desplegable "La Fundación" agrupa lo
+ * institucional y el resto va suelto. (El menú móvil usa la lista plana `nav`.)
+ */
+export const navDesktop: { label: string; href?: string; children?: NavLink[] }[] = [
+  {
+    label: "La Fundación",
+    children: [
+      { label: "Nosotros", href: "/#sobre-nosotros" },
+      { label: "Misión y visión", href: "/#mision-vision" },
+      { label: "Objetivos", href: "/#objetivos" },
+      { label: "Nuestra historia", href: "/#historia" },
+      { label: "Comisión directiva", href: "/comision" },
+      { label: "Socios y padrinos", href: "/socios" },
+    ],
+  },
+  { label: "Proyecto", href: "/#proyecto" },
+  { label: "Eventos", href: "/#eventos" },
+  { label: "Actividades", href: "/actividades" },
+  { label: "DIVERtite picoTEAndo", href: "/divertite-picoteando" },
+  { label: "Contacto", href: "/#contacto" },
+];
+
+export const members: {
+  title: string;
+  lead: string;
+  kinds: MemberKind[];
+  cta: { title: string; text: string; label: string };
+} = {
+  title: "Socios y Padrinos",
+  lead: "Hay muchas formas de ser parte de la Fundación. Conocé las categorías de socios y de padrinazgo, con sus derechos y compromisos.",
+  kinds: [
+    {
+      title: "Socios Fundadores",
+      summary:
+        "Personas que participaron en el acto constitutivo de la Fundación y suscribieron el Acta Constitutiva correspondiente.",
+      rights: [
+        "Participar con voz y voto en las Asambleas, conforme al Estatuto.",
+        "Integrar los órganos directivos de la Fundación.",
+        "Recibir reconocimiento permanente como fundadores de la institución.",
+      ],
+      duties: [
+        "Cumplir y hacer cumplir el Estatuto y el presente Reglamento.",
+        "Velar por el cumplimiento de la misión, visión y objetivos institucionales.",
+        "Actuar con ética y compromiso en representación de la Fundación.",
+      ],
+      accent: "#f5c518",
+    },
+    {
+      title: "Socios Protectores",
+      summary:
+        "Personas físicas o jurídicas que contribuyen de manera periódica al sostenimiento económico o institucional de la Fundación.",
+      rights: [
+        "Ser invitados a jornadas, talleres, eventos y programas de la Fundación.",
+        "Recibir información periódica sobre la gestión, proyectos y logros.",
+        "Ser reconocidos institucionalmente por su apoyo.",
+      ],
+      duties: [
+        "Cumplir con los aportes comprometidos.",
+        "Actuar en coherencia con los valores y fines institucionales.",
+        "Participar activamente en eventos o actividades cuando sea requerido, según disponibilidad y compromiso.",
+      ],
+      accent: "#abcf36",
+    },
+    {
+      title: "Socios Benefactores",
+      summary:
+        "Personas o entidades que realizan aportes económicos o en especie de carácter significativo, aunque no necesariamente periódico, destinados al fortalecimiento de proyectos, eventos o programas de la Fundación.",
+      rights: [
+        "Participación en eventos y actividades.",
+        "Ser reconocidos institucionalmente por su apoyo.",
+        "Beneficios fiscales.",
+      ],
+      duties: [
+        "Realizar los aportes económicos o en especie según lo establecido en la adhesión.",
+        "Cumplir con los estatutos, reglamentos internos y decisiones de la junta directiva.",
+        "Actuar con integridad, evitando conflictos de interés y acciones que puedan afectar la imagen de la Fundación.",
+      ],
+      accent: "#05acec",
+    },
+    {
+      title: "Aliados Institucionales",
+      summary:
+        "Organizaciones, empresas o profesionales que colaboran con la Fundación mediante convenios, acuerdos de cooperación o acciones conjuntas orientadas al cumplimiento de sus fines.",
+      rights: [
+        "Participar en actividades, proyectos y programas desarrollados por la Fundación.",
+        "Recibir información sobre el desarrollo de los proyectos en los que participan.",
+        "Ser reconocidos institucionalmente por su apoyo.",
+        "Formar parte de programas de responsabilidad social, voluntariado corporativo o proyectos de inclusión, ampliando su impacto social.",
+      ],
+      duties: [
+        "Contribuir con recursos económicos, logísticos, técnicos o humanos según los acuerdos.",
+        "Respetar los términos de colaboración, convenios y protocolos establecidos.",
+        "Actuar con integridad, transparencia y ética, evitando conductas que puedan afectar la reputación de la Fundación.",
+      ],
+      accent: "#f7941d",
+    },
+    {
+      title: "Padrinos",
+      summary:
+        "Personas físicas o jurídicas que contribuyen de manera periódica al sostenimiento terapéutico de los niños beneficiarios de la Fundación. Su aporte permite garantizar la continuidad de los programas, cubrir necesidades esenciales y fortalecer el acompañamiento integral a los niños y sus familias.",
+      rights: [
+        "Recibir reportes periódicos sobre el impacto de su aporte en los programas y en la vida de los niños beneficiarios.",
+        "Invitación a jornadas, eventos o actividades especiales organizadas por la Fundación.",
+        "Ser reconocidos institucionalmente por su apoyo.",
+      ],
+      duties: [
+        "Contribuir de manera regular al sostenimiento terapéutico de los niños, según lo acordado en el convenio o compromiso de padrinazgo.",
+        "Respetar la privacidad de los beneficiarios y la información sensible de la Fundación.",
+        "Mantener comunicación con la Fundación y, de ser requerido, participar de actividades de seguimiento o encuentros de evaluación.",
+      ],
+      accent: "#8b5cf6",
+    },
+  ],
+  cta: {
+    title: "¿Querés sumarte?",
+    text: "Escribinos y te contamos cómo ser socio, aliado o padrino de un niño.",
+    label: "Quiero ser parte",
+  },
+};
 
 export const divertite = {
   id: "divertite",

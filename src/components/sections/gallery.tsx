@@ -34,6 +34,8 @@ export function Gallery() {
   const group = groups[Math.min(active, groups.length - 1)];
   const photos = group.photos;
 
+  // Con pocas fotos un marquee las repetiría y dejaría huecos: va una grilla centrada.
+  const isSmall = photos.length < 12;
   const half = Math.ceil(photos.length / 2);
   const rowA = photos.slice(0, half);
   const rowB = photos.slice(half);
@@ -86,9 +88,6 @@ export function Gallery() {
                   }`}
                 >
                   {g.year}
-                  <span className="ml-2 hidden text-sm font-normal text-muted-foreground sm:inline">
-                    {g.label}
-                  </span>
                   {i === active && (
                     <motion.span
                       layoutId="gallery-underline"
@@ -114,15 +113,43 @@ export function Gallery() {
           transition={{ duration: 0.4 }}
           className="mt-10 space-y-4"
         >
-          <PhotoMarquee photos={rowA} direction="left" speed={80} height={220} onPhotoClick={openLightbox} />
-          {rowB.length > 0 && (
-            <PhotoMarquee photos={rowB} direction="right" speed={90} height={220} onPhotoClick={openLightbox} />
+          {isSmall ? (
+            <ul className="mx-auto flex max-w-6xl flex-wrap justify-center gap-3 px-5 sm:gap-4">
+              {photos.map((photo) => (
+                <li key={photo.src}>
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(photo)}
+                    aria-label="Ampliar foto"
+                    className="relative block h-52 overflow-hidden rounded-2xl transition-transform hover:scale-[1.03] sm:h-64 lg:h-72"
+                    style={{ aspectRatio: `${photo.width} / ${photo.height}`, maxWidth: "calc(100vw - 2.5rem)" }}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 640px) 90vw, 400px"
+                      placeholder={photo.blurDataURL ? "blur" : "empty"}
+                      blurDataURL={photo.blurDataURL || undefined}
+                      className="object-cover"
+                    />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <>
+              <PhotoMarquee photos={rowA} direction="left" speed={80} height={220} onPhotoClick={openLightbox} />
+              {rowB.length > 0 && (
+                <PhotoMarquee photos={rowB} direction="right" speed={90} height={220} onPhotoClick={openLightbox} />
+              )}
+            </>
           )}
         </motion.div>
       </AnimatePresence>
 
-      <p className="mt-6 text-center text-sm text-muted-foreground">
-        Pasá el cursor para pausar · tocá una foto para ampliar
+      <p className="mt-6 px-5 text-center text-sm text-muted-foreground">
+        {isSmall ? "Tocá una foto para ampliar" : "Pasá el cursor para pausar · tocá una foto para ampliar"}
       </p>
 
       <Lightbox

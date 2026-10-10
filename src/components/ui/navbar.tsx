@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { nav, site } from "@/content/site";
+import { nav, navDesktop, site, type NavLink } from "@/content/site";
 import { cn } from "@/lib/cn";
 import { BrandMark } from "./brand-mark";
 import { ThemeToggle } from "./theme-toggle";
@@ -39,7 +39,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 px-3 transition-all duration-300 sm:px-4",
         scrolled ? "py-2" : "py-4",
       )}
     >
@@ -58,21 +58,25 @@ export function Navbar() {
 
         {/* Links desktop */}
         <ul className="hidden items-center gap-0.5 lg:flex">
-          {nav.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={cn(
-                  "whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors",
-                  overHero
-                    ? "text-white/85 hover:bg-white/10 hover:text-white"
-                    : "text-foreground/75 hover:bg-surface-muted hover:text-brand-600",
+          {navDesktop.map((item) => {
+            const linkCls = cn(
+              "whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors",
+              overHero
+                ? "text-white/85 hover:bg-white/10 hover:text-white"
+                : "text-foreground/75 hover:bg-surface-muted hover:text-brand-600",
+            );
+            return (
+              <li key={item.label}>
+                {item.children ? (
+                  <DropdownLink label={item.label} items={item.children} className={linkCls} />
+                ) : (
+                  <Link href={item.href!} className={linkCls}>
+                    {item.label}
+                  </Link>
                 )}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex shrink-0 items-center gap-1.5">
@@ -110,7 +114,7 @@ export function Navbar() {
         hidden={!open}
         className="lg:hidden"
       >
-        <div className="mx-auto mt-2 max-w-6xl px-4">
+        <div className="mx-auto mt-2 max-w-6xl">
           <ul className="flex max-h-[calc(100dvh-6rem)] flex-col gap-1 overflow-y-auto overscroll-contain rounded-3xl border border-border bg-surface p-3 shadow-xl">
             {nav.map((item) => (
               <li key={item.href}>
@@ -151,5 +155,85 @@ function BurgerIcon({ open }: { open: boolean }) {
         <path d="M4 7h16M4 12h16M4 17h16" />
       )}
     </svg>
+  );
+}
+
+/** Desplegable del menú de escritorio: abre al pasar el mouse, con foco o al tocar. */
+function DropdownLink({
+  label,
+  items,
+  className,
+}: {
+  label: string;
+  items: NavLink[];
+  className: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className={cn(className, "inline-flex items-center gap-1")}
+      >
+        {label}
+        <svg
+          className={cn("h-3.5 w-3.5 transition-transform", open && "rotate-180")}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+      {/* El padding superior hace de puente para no perder el hover al bajar el mouse */}
+      <div
+        className={cn(
+          "absolute left-0 top-full z-10 w-60 pt-3 transition-all duration-150",
+          open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0",
+        )}
+      >
+        <ul className="rounded-3xl border border-border bg-surface p-2 text-foreground shadow-xl">
+          {items.map((it) => (
+            <li key={it.href}>
+              <Link
+                href={it.href}
+                onClick={() => setOpen(false)}
+                className="block rounded-2xl px-4 py-2.5 text-sm font-medium text-foreground/85 transition-colors hover:bg-surface-muted hover:text-brand-600"
+              >
+                {it.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
