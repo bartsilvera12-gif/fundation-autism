@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import type { GalleryPhoto } from "@/content/gallery";
 import { cn } from "@/lib/cn";
 import { usePrefersReducedMotion } from "@/lib/motion";
+import { thumbOf } from "@/lib/photos";
 
 type Props = {
   photos: GalleryPhoto[];
@@ -37,10 +38,16 @@ export function RotatingPhoto({
 }: Props) {
   const reduced = usePrefersReducedMotion();
   const [i, setI] = useState(0);
+  // Hasta dónde se montó la pila: solo se cargan la actual y la siguiente (no todas a la vez).
+  const [reach, setReach] = useState(1);
   const ref = useRef<HTMLDivElement>(null);
   const inView = useRef(true);
 
   const rotate = !reduced && photos.length > 1;
+
+  useEffect(() => {
+    setReach((r) => Math.max(r, Math.min(i + 2, photos.length)));
+  }, [i, photos.length]);
 
   useEffect(() => {
     if (!rotate) return;
@@ -77,7 +84,7 @@ export function RotatingPhoto({
     const p = photos[0];
     return (
       <Image
-        src={p.src}
+        src={priority ? p.src : thumbOf(p.src)}
         alt={alt ?? p.alt}
         fill
         sizes={sizes}
@@ -91,10 +98,10 @@ export function RotatingPhoto({
 
   return (
     <div ref={ref} className="absolute inset-0">
-      {photos.map((p, idx) => (
+      {photos.slice(0, reach).map((p, idx) => (
         <Image
           key={p.src}
-          src={p.src}
+          src={priority && idx === 0 ? p.src : thumbOf(p.src)}
           alt={idx === i ? (alt ?? p.alt) : ""}
           fill
           sizes={sizes}

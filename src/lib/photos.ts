@@ -31,3 +31,12 @@ export function photoAt(i: number): GalleryPhoto | undefined {
   if (allPhotos.length === 0) return undefined;
   return allPhotos[i % allPhotos.length];
 }
+
+/**
+ * Miniatura liviana de una foto de evento (`.../edicion-1/x.webp` → `.../edicion-1/t/x.webp`).
+ * Las fotos subidas desde el admin (Storage) no tienen miniatura y se devuelven tal cual.
+ */
+export function thumbOf(src: string): string {
+  const m = src.match(/^(\/images\/eventos\/[^/]+)\/([^/]+)$/);
+  return m ? `${m[1]}/t/${m[2]}` : src;
+}

@@ -24,339 +24,339 @@ export const galleryGroups: GalleryGroup[] = [
     "photos": [
       {
         "src": "/images/eventos/edicion-1/20230903095206_IMG_3240.webp",
-        "width": 2400,
-        "height": 1948,
+        "width": 1800,
+        "height": 1461,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQAgCdASoQAA0AA4BaJYgCsAYulzVV6EWVQ0AA/sKc3vDYcgx3Dqw+3lJZwXh1PxxEHlazQ9W8daQwYTMyK6oRNxGJ4zqk465Y0BEpTH6Tu4N1ThGbuI0BCiYiL0n0NWxswQAA"
+        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQAgCdASoQAA0AA4BaJYgCsAYulzVV6EWVIAAA/sKc3vDYcgx3Dqw+3lJZwXh1PxxEHlazQ9W8daQwYTMyK6oRNxGJ4zqk465Y0BEpTH6Tu4N1ThGbuI0CSg1MnJp70NWxswQA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903095208_IMG_3241.webp",
-        "width": 2400,
-        "height": 1982,
+        "width": 1800,
+        "height": 1486,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAA0AA4BaJZgCdAYvXDHDA7AA/uzR4lrbKjB7g4P6jpJmEbNwC4oAYc4D+9mECwXyuuVLDx3RRcyDEsx02AZIfi+SrRISiJ3j0wWyaVlQvUZvuPfqMgAA"
+        "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAA0AA4BaJZgCdAYvXDHDA7AA/uzR4lrbKjB7g4P6jpJmEbNwC4oAYc4D+9mECwXyuuVLDx3RRcyDEsx02AZIfi+SrRISiJ3j0wWyaVlP+E0sce/FwAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903095302_IMG_3243.webp",
-        "width": 2400,
-        "height": 1942,
+        "width": 1800,
+        "height": 1456,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoQAA0AA4BaJaAC7AYxtKu9pZMk4ADwICV0peT3ve7ic9KmTGbBHWe4Vo7FBQ5zw+A5JGvM5dF3uv1lLnBJfYsJG6STLDhA+bw1Cg8RlhlCSZSWD4x0HJQwhK3PS4XQJiQAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABwAgCdASoQAA0AA4BaJaAC7H8Agvh/6EborxQAAPAgJXSl5Pe97uJz0qZMZsEdZ7hWjsUFDnPD4Dkka8zl0Xe6/WUucEl9iwkbpJMsOED5vDUKDxGWGUJJlJH/M+y8t8Q/PaVAxmFgAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903095401_IMG_3246.webp",
-        "width": 2400,
-        "height": 1940,
+        "width": 1800,
+        "height": 1455,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQAgCdASoQAA0AA4BaJbACdH8AgrC8bw24fkAA/ulTTzTHbn4hj62vs0hTBhsBh8PeVoP8zpCJWYTIQJtzK9ftRfJ+X8yXKvb3yHM185GrhYtGYjRJ2/XSyHCo36yIXOcnbrg72JTAx0r4/THU4YLgkOm/+39hlVv/rNUYAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwAgCdASoQAA0AA4BaJbACdH8AgrS8bw10oAD+6VNPNNdufiGPrbMPVd3u0o2XzK7U2QnEFyH3VpkrCYBomTWzw4OredMV2JTCxqkhBdrsMP+YV1wSe/WJafdFYUjzvcVIhLSuvMEal199YTsijqlCgjV0PPau3/BD1AAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903095432_IMG_3247.webp",
-        "width": 2400,
-        "height": 1933,
+        "width": 1800,
+        "height": 1450,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQAgCdASoQAA0AA4BaJbACdAYvXzGKYuN1doAA/psCrjb3xx+9wGnA1AUwbXvdky6XeYnQJjTCscJ2un+l7J0eBxoKy7NaUva3yHvMRn/DTc6odItPzClfGN80g4H98kbF8KNzpkIHo4u8dfn4Z5tCJDfO4V0ijaCYAAAA"
+        "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABQAgCdASoQAA0AA4BaJbACdAYv/zF9Y1r4cqAA/psCrjb+SGO9wGnA1zxhm4TbnA0mvDuwhKxBEejT1fhTerXSEs0o1isqPU2AYzljErkGvKrMFcTksGXBK2qR7HHASNjnmtaVngXnPqsaNyjOCTQPN/ovzXeaQawAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903095605_IMG_3253.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoQAAsAA4BaJQBOgCHurBf/N1oYAAD+4liK2Or172R/6Lsxk28iFMGOvEZ7nhM6TDhYOzNAzJwvx/k5fRnbIChFyzuvQbs0i2mvhAI6fFxeJZI8MQaWkx59mU1WnHngGMYrtc8ioAA="
+        "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAgCdASoQAAsAA4BaJQBOgCHurBf/N1eMAAD+4liK2Or172R/6Lsxk28iFMGOvEZ7nhM6TDhYOzNAzJwvx/k5fRnbIChFyzuvQbs0i2mvhAI6fFxo2qUWJVMb6e8Psymq0488AxjFdrnkVAAAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903095729_IMG_3256.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABQAgCdASoQAAsAA4BaJbACdDBHQYuxOg+CwwAA/sylrlLLkUQrFvKvs+Mj7xv4AxRwmMw2k2+H64Gcq/ph0Lus4f50dQIBfiZlEchpsr9aZa0yShqrHPVYQ4DEsNLR4AA="
+        "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoQAAsAA4BaJbACdDBHQYuxOg+BqAD+zKWuUsuRRCsW8q+z4yPvG/gDFHCYzDaTb4frgZyr+mHQu6zh/nR1AgF+JmURyGmyv1plrTJKGqseftpcZNRZDMwgAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903095848_IMG_3258.webp",
-        "width": 2400,
-        "height": 1909,
+        "width": 1800,
+        "height": 1432,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwAgCdASoQAA0AA4BaJaACdIExgsCwinegkI5AAP5JD8lDzb9UGz8j7Dev6KWpG1lu4s56qea4R9lHBCn61cUWH7/X//ZoJkwqyLf5yuJollpAUxXGR3cN4GNE6P1Ojtpifos19zsPysRMBaf77/GC1/2xGCIJ1mwakDoA"
+        "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwAgCdASoQAA0AA4BaJagCdIExgsCwinegkI5AAP5JD8lDzb9UGz8j7Dev6KWpG1lu4s56qea4R9lHBCn61cUWH7/X//ZoJkwqyLf5yuJollpAUxXGR3cN4GNE6P1Ojtpifos19zsPysRMBaf77/GC1/2xGCIJ1mwakDoA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903101119_IMG_3260.webp",
-        "width": 2400,
-        "height": 1921,
+        "width": 1800,
+        "height": 1441,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAA0AA4BaJZACdAEQaHBWGbogAAD+rSI4fDOkld/TX472vWhF3kh1KDymIGYCCvMPTleXnInohD0mFAdkMwAJybu5pn8ek0hUCYoUSTeqlDzBt3fX0OAA"
+        "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoQAA0AA4BaJZACdAEQaHBWGbogAAD+rSI4fDOkld/TX472vWhF3kh1KDymIGYCCvMPTleXnInohD0mFAdkMwAJybu5pn8ek0hUCYoUkqRJwqRDxBdkf1SgAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903103057_IMG_3267.webp",
-        "width": 2400,
-        "height": 1948,
+        "width": 1800,
+        "height": 1461,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAgCdASoQAA0AA4BaJbACdH8Agry3ufB+DAAA/tqVXzZFFB+Y19qDQtqg0rT/5GZtDw8L8KV4s0i7T/GiuZPvSOxrKWqx9k8uff1GLajG8offcGOfFB1xvbkNI2Abh6dG8osguII20XHbxMonLBgA"
+        "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAgCdASoQAA0AA4BaJbACdH8Agry3ufB9wAAA/tqVXzZFFB+Y19qDQtqg0rT/5GZtDw8L8KV4s0i7T/GiuZPvSOxrKWqx9k8uff1GLajG8offcGOfFB1xvbkNI2AcQkZWFm80x6guSNCQ4buvL4AA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903103059_IMG_3268.webp",
-        "width": 2400,
-        "height": 1889,
+        "width": 1800,
+        "height": 1417,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQAgCdASoQAA0AA4BaJbACdEf/gge/Hzv2DAAA/qvdBRlxJ7b8aGo7quCUkinKIWfZOKHCoHPGuE76r3ivDaIagtAPkCnx/d2tMK+aOLEvFdGfJl+a1p5Qj0u+84qiuq+P1qQyr58g1eIz7iaL1xMamkgGAAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903103105_IMG_3269.webp",
-        "width": 2400,
-        "height": 1907,
+        "width": 1800,
+        "height": 1430,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQAgCdASoQAA0AA4BaJbACdAYwx2900KuaQOAA/qjEGyUnwec2ygMyKGis3C58pbRGm0t5PYUqArwT9UQNtrLDZdy4tH2LYHdqK2wAV1BoU3U5cCTOjrGkogBfW02ocQB1oQqMUsyZ/CBhbViuce7ffp5DElzgyAA="
+        "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABQAgCdASoQAA0AA4BaJbACdAYvh2/+10HjrYAA/qjEGyPUrkQ0iVmIBTkpL80LEUifNvxA3n4My0R0YVmXe53RLCfM/gzR9iwe0nQaCKm91svHxP0K0HpND9oaQEf+3qxR160I9UilmTP4QMLasVzj3b79PIYwu4RQAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903103233_IMG_3272.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABwAgCdASoQAAsAA4BaJbACdAf60ukpccZZ+VmgAP7SfKOcE99uCXKVL5nTdBTlEvHnYuqAc/cYoQUNw1QTHVoZENgso8k11YhS9+Uh8WubZZcF2FmnyNHSwqvOTXslam80ONwJ2807Ay+PguuwAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903103415_IMG_3274.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwAgCdASoQAAsAA4BaJbACsAYvhOEMkW8ApAD+jbX/3AdFZbzS9hINSRqsBn1ZPK55MuY73y3GlUve8lybT41pvI6ixxVTI5kE2qvNnrY+1KRoQ/bLnnqjLv3oLXlGImVW/q9YRq9U3WFzp5Dy5gZVEUHiAAAA"
+        "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQAgCdASoQAAsAA4BaJbACsAYvry6eRDxRTIAA/o22AGVRTt0fPHZV7JkIeUS1EwwQzhvjN2DRhE1+xHIAUKuKOGUrfHFWB2HR6vgLmddMfA49I8myAqC7Fb/GO6ww5XSOtzVRBB8OT4o2wudPIeXMDKoig8QAAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903103416_IMG_3275.webp",
-        "width": 2400,
-        "height": 1921,
+        "width": 1800,
+        "height": 1441,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwAgCdASoQAA0AA4BaJbACdAYr7zF1Ezsa8xUAAP7EHrW7oSVzx9WyMSIJthRCKpWV6lNb/V4Rtf0m1WJovk5M6ZwHyTVjuqOMxzEydnCO+2+5wYKaopzcTp7cQPMK+sPav/42f8F7StSQuLjY/RmQBkZmEZUEk2LZfGAsxhWP4AAA"
+        "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQAgCdASoQAA0AA4BaJbACdDBUCIYMU3IAz1axAAD+xB61uafpmHaLGlyZR/bvyS38sMjMNsFcm6R/hrNOdmveW6MVNyHfRKVFp5AGxOmupm1Ogzyri7mTDF4xURrvx5D2Z/zxfU/qk1ao18HWwMAv3rHgxa1+vdVlVCuejKaoAAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903103432_IMG_3276.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQAgCdASoQAAsAA4BaJQBWD+AQWY564jkP+QAA/snmWtzcoZTQCdIoRZop2q8huYvbKzsGi1UM1vFc4V+UH895HzqY6GskU49i+yKmaW8tTyaZWyJ6iYUTjRIcgoXKVz+gAW4l/5HbvPiw43hOsmwAAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAgCdASoQAAsAA4BaJQBWD+AQWo568fKgkgAA/snmWtzkoZTQEZ6IRZ4rjq8huZvbK8Emi1UPDQz+7V+UJOd5Hzq46Gskur9ezBAHZPRCXnIWmIwKN8Fxd/MNwhD3QsMAkkAxv12lWIhilkpJNgAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903103433_IMG_3277.webp",
-        "width": 2267,
-        "height": 2279,
+        "width": 1791,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwAgCdASoQABAAA4BaJQBOhxAA5Sb7priUvEo8BoAA/sYAQs3wKZTMJmev0MSCWwiPWUuDH/O0BHV8vyLbs53q6ZTfWlbUg6IXFCj+oEOvV4uvdW1eq/+Lb6LImVF/uCMMejkl7UcousfygnHy9JG8m/elxejgxIKQ/AAA"
+        "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACQAgCdASoQABAAA4BaJQBOgMXm1bUPYL2MILLgAAD+xgBA2QpR1KAxqz3BHMP0Ga6M3w4btMTjQhiCo+Ta+WrplN3Hivh94Pr/0R1Cu2Q2XZYUBP45P2n/hhQwzoBlmTM/wRkklMxsZSjbj2Um1h96fCfWB3DXGNgAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903104059_IMG_3280.webp",
-        "width": 2400,
-        "height": 1921,
+        "width": 1800,
+        "height": 1441,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoQAA0AA4BaJZgCdAYwT2tC3kqAAOJ4Kd/ER53/EWUs02L3JSeAyplJd69Ywz4ho8o1zH73EyaJiAhP00FO9gg2LEV1jDvdSCTC9Ov4FwC+hV37HSJNE1TYJObEu5+aFkg2Q3xeAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoQAA0AA4BaJZgCdAEfTH186KgAAOJ4Kd/ah339RLKWc3oFzp7Ouprdba0VmZ8B/R5W3W56LQHc0itsexpsWFByb+RioKTQ9zC9JjWPFfbmh5qTcOGSh08QHByGyslvD4wlj0xFwAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903104116_IMG_3282.webp",
-        "width": 2400,
-        "height": 1900,
+        "width": 1800,
+        "height": 1425,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABwAgCdASoQAA0AA4BaJbACdAYulgfaxutjsQYAAP7pV5Ey2qfbzi/l4ldqe18fRRG7vrVQNVvZGQQB63ezbblUJGDtm9aI5yIdNNAJd1smUBYmIxSNYFqDObd2hjIvaOodcyHVs092K+05BOdYdrwUog+/QJziJIAAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACQAgCdASoQAA0AA4BaJbACdH8Agqil+6QljgCosAD+6VeRMtqn284v5eJXantfH0URu761UDVb2RkEAet3s225VCRg7ZvWiOciHTTQCXdbJlAWJiMUjWBagzm3doYyL2jqHXMh1bNPRQGgNnbMpRS8FKIPv0Cc4iSAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903111541_IMG_3290.webp",
-        "width": 2400,
-        "height": 1939,
+        "width": 1800,
+        "height": 1454,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAQCdASoQAA0AA4BaJZACdADyhs8lQoAA/mFRsSzby51hYPgCRim+hQaWXzuUCTZ/WRApXsh+bGWv0lyoSLAalZaB0fU4jCxmGgOLaThyHPwbYYqqH/KKSiS4K3Aq7Nc+MvhjMhB9mm0IvAAAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAQCdASoQAA0AA4BaJZACdAD0tQ7XgtAA/mFRsJUviq2WgUSjEB3LOjx2oHYWZd7d38RcrPawr3/Z+PfPCOzo7ESd0a6TA2jyjISevnOwmTX35O1dT1SxJN0AiV2a58ZfDGZCD7NNoReAAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903112730_IMG_3291.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoQAAsAA4BaJZgCdEf/i2GMj6VBoBWwAP6bfpwzyDXExziwN5QgSL3b+BJOzbexoWRjvXD0lZDe2cVJPReArVS3LDOLiPd5CQuiU4yozrq7FXJo4FRA9WEu6qD7fQIo3rMmmAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903112745_IMG_3292.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAsAA4BaJbACdAELZGuAwgAA/vAZ+GMAsje1wH1jkzxvkR+sEMAqkoudJaB0ADwVEVT52o2wb4kgpDERQiy/XSbwKd4oul7qxWQ3+IeevP/YUAA="
+        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAsAA4BaJbACdAELZGuAwgAA/vAZ+GMAsje1wH1jkzxvkR+sEMAqkoudJaB0ADwVEVT52o2wb4kgpDERQiy/XSbwKd4oul7qxWQ3+IeT/MtuHAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903112803_IMG_3295.webp",
-        "width": 2400,
-        "height": 1811,
+        "width": 1800,
+        "height": 1358,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwAgCdASoQAAwAA4BaJaACdAYwxc7TP3/H8AD+8mVruysIYSEdViwWzdFHK4oEIaTUfmAPObsiRKidmndyrhjrIJg0kV2IuHdtNLyQGqcSnIT8GbjEmeGUXoIZrONGibIEpdwyAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQAgCdASoQAAwAA4BaJagCdADhTgYirGwAAP7yZW0kgPaZQPG/AJnaRhAWTEMBxNr7ewRH1nsaGqWjF39L+0XgD0hWfsKXIM8LQDPQJFi6BCOi8t0qy6igKbiYKNRULIc4PwcKqgA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903112829_IMG_3297.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoQAAsAA4BaJaACdAYsY7lFsQ8AAP5LU9jSGZKSJlJ8J14GTFL6/ZDgx1xs+6aK9mJg4/vIQSLn2RBmdzN9rmhi+KtD2fFcNzWHClljUH3cx66eBkjMahW2Kx+Sa+AA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903112837_IMG_3298.webp",
-        "width": 2400,
-        "height": 1921,
+        "width": 1800,
+        "height": 1441,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAgCdASoQAA0AA4BaJYgCsAYu5a3ATEg2BYAA/ty/tNuiJQyf3AfPvkoNR9GuRi/B7GTkRKQTjPmO493fh1qGz5mHGWcuxiE9CkXse+z7992DXmoAil1n87vaVE2shaQdXALCHisQKVAMi18e4AAA"
+        "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQAA0AA4BaJZACw7Yu5a3ATEg2A6AA/ty/tNuiJQyf3AfPvkoNR9GuRi/B7GTkRKQTjPmO493fh1qGz5mHGWcuxiE9CkXse+z7992DXmoAil1n87vaVE2px/W9mcR6LQsouTZFr49wAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903113034_IMG_3300.webp",
-        "width": 2400,
-        "height": 1885,
+        "width": 1800,
+        "height": 1414,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAA0AA4BaJbACdAYvXF3ARqGIAADgInryNV9LZCDLxbGLjiYeLHlkBwAC+ily3/u4i0gQc/ZJbjJj3cF1vOPghHz2cBUnhM50cxZp4c0475KW8rfOanCU5IAAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAA0AA4BaJaACdAYu5GHePY+iAADgInrxjBtLY1YnQujcJJYeLHlgBvt6H0VrTC3QX9dk1/cFGEK+Xw8pjg3k+3R69jGh9A291sKkGypcx3Wrhxe5/IgBAtteAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903113035_IMG_3301.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAQAgCdASoQAAsAA4BaJQBOgMWls45Cf4gAAN4OfWiBjjMpLApNaI+8WS1tlvPmjbENi0UY0lrAp8/DdqF1F/AgwOUvLtOLIVoxAIAds7+vsAxrdeC8lkt0IAA="
+        "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAsAA4BaJYgCsAYtLZxyE/xAAN4OfWiBjjMpLApNaI+8WS1tlvPmjbENi0UY0lrAp8/DdqF1F/AgwOUvLtOLIVoxAIAds7+vtimMoOVvUiAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903113038_IMG_3302.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAQCdASoQAAsAA4BaJYwCdAC4WHj5gADybiz37ruvrU/sXDRO/bMf7qydXWBVeFgRJSNLY1a8mwdWZzs0/aNPdmD96UyNCiPhlgTmK2s1+FivMx44GZAa9mKDgbGOCDwAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAsAA4BaJYwCdAC4WHj5gADybiz37ruvrU/sXDRO/bMf7qydXWBVeFgRJSNLY1a8mwdWZzs0/aNPdmD96UyNCiPhlgTmK2s1+FivMx44GZAa9mKDgbHR+4L4AAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903113039_IMG_3303.webp",
-        "width": 2400,
-        "height": 2334,
+        "width": 1800,
+        "height": 1750,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwAgCdASoQABAAA4BaJQBOgMX6qQKNjthRiWwAAPzYEBYP7aUcamMq1mbTxAQ4b/234QSy+XoKD2QuEpoG2vymgQl98hx/iBZtIYtXNHGpFXTHsp+gZjkDe0QYO4oq4G2gyAmGcV//HM2I/NgfW3ckWfEmrfUMoK2H4AAA"
+        "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQAgCdASoQABAAA4BaJQBOgMXmlqarginAAPzVvCboMJqq/rXVEMhV1quQeXrc7dD9aHmP4u/J7+SZ5/J8zc9W4aOKpUb7tAQbwvjoFSCH59KDj92Qo46WdjQAjpTpttVtOw+6w2gJDmPKkhfs3v12NFDahfH5heAAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903113045_IMG_3304.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAsAA4BaJYgCdAYvXUCwFOAAAOAYCEMEvft9FXZVeGKY15Dl2fGaHt77CCt9QrHCqfmTn+buo4sMU9cI/jHHM75FcRixKJJf0TAUnC3xWqQwcFAAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAsAA4BaJYgCdAYvXUCwFPLAAOAYCEMEvft9FXZVeGKY15Dl2fGaHt77CCt9QrHCqfmTn+buo4sMU9cI/jHHM75FcRixKJJf0NNyeiwWTWTpH0AAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903114343_IMG_3308.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAQCdASoQAAsAA4BaJQBOgA75BvOAAP479C/pmj1pTmhX4MaZcXOs88HRXYAVHAwoyQlj2ClUP3BHqbTcqu+6w5QU4RplEMR5UUEvBJMB6asxGyKOLSZA0AA="
+        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAQCdASoQAAsAA4BaJQBOgA75BsQAAP479C/pmj1pTmhX4MaZcXOs88HRXYAVHAwoyQlj2ClUP3BHqbTcqu+6w5QU4RplEMR5UUEvBJMB6asxGyKOLSZA0AA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903122614_IMG_3311.webp",
-        "width": 2296,
-        "height": 2400,
+        "width": 1722,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoPABAAA4BaJbACdADxOI0083ibQAD+7a3LtNFltgstdAYS813AoHM9NMK8/v2tRl/NyZpnmhJaKijJRUsWRk5V/8KeZqMQhdGYh1sKY1bDh9NCUgBlq1gswjTL8H0urp6sJtRM6AA="
+        "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoPABAAA4BaJbACdADxOI0083ibQAD+7a3LtNFltgstdAYS813AoHM9NMK8/v2tRl/NyZpnmhJaKijJRUsWRk5V/8KeZqMQhdGYh1sKY1bDh9NCUgBIiHnUD2GdJkVOnqwm1EzoAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903122622_IMG_3314.webp",
-        "width": 2400,
-        "height": 2028,
+        "width": 1800,
+        "height": 1521,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwAgCdASoQAA4AA4BaJbACdAYv1Sc7rKx1+OEAAP5tOhut/1iru3vu18rgyhoczwA8PzofmGI2SaHM2nyu4yF2TKlQHXnMWZ3VVAqfmNTI73uQgePfvvDZyl/3PZWQCExpH80PaX6HboCQdnoI1lNrYcFsoi7kkEV67AAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903122837_IMG_3316.webp",
-        "width": 2400,
-        "height": 1910,
+        "width": 1800,
+        "height": 1432,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAQCdASoQAA0AA4BaJaACdAENxQ1ygAAA/vIWtJyIGA2m0wqnvHl3tCJfrvfAC6nKLl+MsU6MTBtPNRNRl/0W/1DTGnFqRG7bvXBET1O89UYds0tt2O8RgLU+jP5thoozhcC2Bh3zToqCVawbtT8zAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQAgCdASoQAA0AA4BaJaACdAENxQ1zk5MAAP7yFrSciBg8T8GcdfFD+s2ET7C+ceNOFziwUKBm6wNMj3h/DJH+7FSuYJFaY2OZNnFAenNwoUmlqPpIcPSuzUnyWqkYS86Jkn3H70nGa6AoUtyV9AAfrWWuAAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903122915_IMG_3318.webp",
-        "width": 2400,
-        "height": 1967,
+        "width": 1800,
+        "height": 1475,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAA0AA4BaJbACdAEfbUi+3AkWAADOLTnV1DLKUxRdy94UlWyd6rKcyrHv2AT9FFpDw0JAlwYamvh49iXXVu6728Z0WnY/QZA2VhkG5aye3XLJxM+hpV9UUyZP4AAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903122952_IMG_3319.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAgCdASoQAAsAA4BaJbACdAYv1v0yz6g/1gAA/iXo/1MaNV/wTmlopVpin959IzBfBlXtXG5cs50HcY17az92Za2vT4XhbsFtlDH8srQOSeUmDJKIixflUs/rRClCbWaeQ27xGGZ8gSY9KQaVgBAA"
+        "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQAgCdASoQAAsAA4BaJbACdAYwTv0yz6g/8YAA/iXo/1NKGuwZWOgyTdVJfd59Mz0e8slEvw4JjD33Trpl/jEZNaBfOZNBVNZ0PxFTAa8+MaKEgTH0nzjMF1foLCQuFFYOXW4y9ddDyTnkVWsNRMKgAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903123000_IMG_3321.webp",
-        "width": 2400,
-        "height": 1600,
+        "width": 1800,
+        "height": 1200,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsAA4BaJQBOgMWv3FRi5cWAAAD+1/nuae8AiCpBsFo/wmjOsNIu7IU+AjfHafMQK/c96GYwovcikTuyrcEjfP/QvO9X3lk+Nwqx6Lu8+09hB0F5PNNyLcMQQAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903123017_IMG_3322.webp",
-        "width": 2400,
-        "height": 1930,
+        "width": 1800,
+        "height": 1448,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAgCdASoQAA0AA4BaJQBOj+AQU5KCkcGeYAD+9xFQvrMICG2dcmu0J/y7fCf1JFJKIz2oCVBTTpKvNcl6f1N+7I4Dvjsl1Uci0TZuQ54vc3csZ3V4FjUXDTh9c1e3uJ1AemgcZJLV3CxBmItwAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903123059_IMG_3325.webp",
-        "width": 1600,
-        "height": 2400,
+        "width": 1200,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoLABAAA4BaJbACdADdrKl5b6RAAP7KnBwPe23VyaSdSe/d+PcteA/qiWj2QOBmCyCUzvT+zMILyIvuwVUklzMAbJQTFKrP0ghVn8+TvBuGI4LwfetHj42yr+IhC3ZZ7ggAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoLABAAA4BaJbACdADdrKl5dPqAAP7KnBwPe23VyaSdSe/d+PcteA/qiWj2QOBmCyCUzvT+zK4QAeXOBUTKlHbH2me+BA5AwNvHaxcVomhgD4bbLWjx8bZV/EQhbss9wQAAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903_132930.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwAgCdASoJABAAA4BaJZgCdEf/ggbEmvCQ9TiQAP7z8NCbJHuX1xJh2uYLnKSDG4lePirkfpZu5NPVdjyfdZB0PDu0d58Llz6mHvbG/coJ42xP1LUVvPgX++sW0fnERL7A+gQAAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163554.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoJABAAA4BaJagCsEf/i118jvIlAAD45Ua2Ut77rzfmLv1xYpaepe3V52ZzHd33XH3pqhlHRU4u4axVkutfW0D4UfnVi+fZEl89/P5YPAqAv6kNUSakX3eMosgAAAAA"
+        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoJABAAA4BaJaACsEf/i118jvIlAAD45Ua2Ut77rzfmLv1xYpaepe3V52ZzHd33XH3pqhlHRU4u4axVkutfW0D4UfnVi+fZEl89/P5YPAqAv6kNUSakX3eMosgAAAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163556.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoJABAAA4BaJagCdAYvXj5HkIAA/pPT+GT5ZkhKseM4zItf1WLx5V6VE24D8BK3v0S31f3L9vLKgrF9UjTBKLzvJcycg8TkKYQHbpDKSKc9CCaj11xYxMfNLwrngAAA"
+        "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoJABAAA4BaJagCdAYvXj5GEAAA/pPT+GT5ZkhKseM4zItf1WLx5V6VE24D8BK3v0S31f3L9vLKgrF9S0C+/zvJcycg8TkKYQH4M90DaIKN3I6II9U0P5SeUYoAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163559.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAQCdASoJABAAA4BaJagCdADZtC1MAADc1w4D+DJMl3Bi5en8O73ZOuLvqG64LHtMKoo2oZl8jejLUCvsH6xS3Evsy4WFBmZKWh4WUS+2Z6pFde+cwrtfboAAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAQCdASoJABAAA4BaJaACdADZtC+BwADc1w4D+DJMl3Bi5en8O73ZOuLvqG64LHtMKoo2oZl8jejLUCvsH6xS3Evsy4WDD7yKn/Y/GAWKRGk38gQE4Ca7/VcAAA=="
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163601.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoJABAAA4BaJbACdAEedDyxEIAA/Is9TA8skwGq3T6mvPdZbE+eG7q7CrH3huoYxtfNubwybEfOHD54TDz/dFk20XfnhT1q7HjYqYg+PxXAF8NuggA="
+        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoJABAAA4BaJbACdAEedHPd7OQA/Is9TA8skwGq3T6mvPdZbE+eG7q7CrH3Ry2nwM0d0SsfPaKKaKF67g6DOVFnX1kOdqtVMhC9mUEUEPY8ZdxUaAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163623.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABwAgCdASoJABAAA4BaJaACsH8Agmyc7IxWsBCAAP64AdhkFX8ItyfkIgGlbhznk5RZzzEEXxpCIg9Fwfp4fpPJFbY+gjmV7NbmHYybpDNA27PfRQXZAGSX0DU47c0IvNtprZAAAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163629.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoJABAAA4BaJZACsH8AE6S2T04AAP6OLSnOlGqT4RkGTSEATCk83z4DCueRQU5PoGanFhcMS9Yv/YCGZZmK+rgCv/nRx/3G4wLmn3HblvrABM8j40e5jZYVGRUagAAA"
+        "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQAgCdASoJABAAA4BaJZACsH8AE6S2T04AAP6OLSnOlGqT4RkGTSEATCk83z4EH0/uB0d+BNeKnplWLtIkM8VL9WrLfSBUaKy3Zm1j5pRnMshnAdflv7inBBEszkHzeztEXAAA"
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163631.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
         "blurDataURL": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACwAQCdASoJABAAA4BaJagCsADZbtfIAP6OLIfGtr+zGF8HzA7lnPJyCIBGA4qLelT6DbAD5kzkcxc+p1yz5YIZKulog9jG6/Gox5olQPIcJDUigxwHX5b+xgAEq/6OoWIO0RcAAAA="
       },
       {
         "src": "/images/eventos/edicion-1/20230903_163632.webp",
-        "width": 1352,
-        "height": 2400,
+        "width": 1014,
+        "height": 1800,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoJABAAA4BaJagCsADdkC966AAA/lXq3jW2+03S6I7EAQMSo4cygBpUm2xyCrFCMu1vqbIPhlMvdqxJCid6C6+YamPmXKYpHdrHAdflvllq8FLpQSIg/8DUAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoJABAAA4BaJagCsADdgDCHSAAA/lXq3jW2+zjKxsnDRDRAjqc3kyTHqcoQY+jgcKjBI4SWJJZwfmpwlTm5MpwZWLXh81rUju1jgOvy3yy1eCl0oJEQf+BqAAA="
       },
       {
         "src": "/images/eventos/edicion-1/ed1-01.webp",
@@ -398,7 +398,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 960,
         "height": 1280,
         "alt": "Momento de DIVERtite picoTEAndo (1ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoMABAAA4BaJYgCsAYtzy2EZCU903AA/gncZWe0SFcoEhycxXeYOzArNGAqYgRVtfBjiOV+Cb+Xo8nM+kCY8eBVIQdrrRiHwJWGFICf4XgJommAAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABQAgCdASoMABAAA4BaJYgCsAYtVy2EVQRN5gAA/mxR692wA0vH8pxGYrvL+Rxo5yqMFuaOG1x55STRU9XHYIvzU7xlJELeIJcyFStbnPmCk0QG3HY2MpaEAAA="
       },
       {
         "src": "/images/eventos/edicion-1/ed1-07.webp",
@@ -488,7 +488,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 960,
         "height": 1280,
         "alt": "Momento de DIVERtite picoTEAndo (2ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoMABAAA4BaJQBOgBuDwn3WUAAA/l5QbDu/7kOwZWBaXEJu5fpQhc1nF7KWyp7/DMDduRcfXax6M+P7AERvfKNpggL7Cax/9kAAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoMABAAA4BaJQBOgBuDwn3WUAAA/l5QbDu/7kOwZWBaXEJu5fpQhc1nF7KWyp7/DMDduRceN33zgVSUdGRXd/lskuypFtp4S8AAAA=="
       },
       {
         "src": "/images/eventos/edicion-2/ed2-03.webp",
@@ -523,7 +523,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 960,
         "height": 1280,
         "alt": "Momento de DIVERtite picoTEAndo (2ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoMABAAA4BaJbAAD5AtASacYG2RkAD6EPVcGSl72F+JIWFUw09wjUEhgROSkwM8dDDrnEKO2pzZGqrCKIG2y4y6RU26Hm6DZhoG9Pyl4BW0q7XIGllqsgJcXQAAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoMABAAA4BaJbAAD5CM/GfMWDAA+hD1XBkqe9hfiSVnS9SPcJ3BNY7/fuR6fnQw76Mijtqc2SKq00hNdkCH5qVyINve9xLBqjEFyLkDPgvQNLLVag7ffQAA"
       },
       {
         "src": "/images/eventos/edicion-2/ed2-08.webp",
@@ -537,7 +537,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 1280,
         "height": 853,
         "alt": "Momento de DIVERtite picoTEAndo (2ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQAAsAA4BaJZgCdAYw7q/QEsORTAAA/pUPOYTEp4z1F1K/JPm9kl1o3HP9/U9ifOAS+hhaz2dZRwvl2rMfMwkHl8gex9xXVmfKduXBNJ8yuDwjoLlzMENiqtlB8+NsZ6DXHPA2KEgAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAgCdASoQAAsAA4BaJZgCdAYxFq/QEsORTAAA/pUPOYTGI4z1d1K/QEbDjWfYnHP9/Vh3H/bGBTkKdPg4kiCL5KZ/PCkhYY8ajqjPghYGJw2nYs2beDJCMnQKPHs00KFpGOBnq8vS/EDG8AA="
       },
       {
         "src": "/images/eventos/edicion-2/ed2-10.webp",
@@ -663,7 +663,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 1280,
         "height": 960,
         "alt": "Momento de DIVERtite picoTEAndo (2ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAwAA4BaJbACdAYv044wG/0AAM3swHpY7/nPaZ7QP+GxuawfFWrmqpHtD7BSm1rG0Nid819/fpopw6AQfoD7oKYGSqpysqU3YL5/c+AuDuiAa18AAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAQCdASoQAAwAA4BaJbACdACKGnyGgADN7MB7NkX8tbJDRbxaHPzaVfFvaZLkXDX3BXx+R3qZw7H9eDZWTYpL5+skkYOk98rE5LcoSmG/zsF8/ufAXB3RANa+AAAA"
       },
       {
         "src": "/images/eventos/edicion-2/ed2-28.webp",
@@ -677,7 +677,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 1280,
         "height": 960,
         "alt": "Momento de DIVERtite picoTEAndo (2ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAwAA4BaJZACdAEN5X00EuOAAN9WIP3wZwETAGjHcbQ86hBYIc2lxH28cavuTYt03asFmjyOwiL55EBYlJtvtDfUJulAy3X9QN37S78tjFzkFViR/McsKXgAAA=="
+        "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAwAA4BaJZgCdAEN5X00EuOAAN9WIP3wZwETAGjHcbQ86hBYIc2lxH28cavuTYt03asFmjyOwiL55EBYlJtvtDfUJulAy3X9QN37S78tjFzkFViR/MZPEZAAAA=="
       },
       {
         "src": "/images/eventos/edicion-2/ed2-30.webp",
@@ -712,7 +712,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 1280,
         "height": 960,
         "alt": "Momento de DIVERtite picoTEAndo (2ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwAA4BaJZAC7ADLstYZ//LgAM2VYFUj8pE1n4x34qgVRZBcSR3Dntd1gmIw2qijYBZadvc1ZiBVkDjNU33tczHei4YuEBVFPp1EEOkyS3L/imt7kunAAAA="
+        "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwAA4BaJYgC7ADLstYaDt6gAM2VYFUj8pE1n4x34qgVRZBcSR3Dntd1gmIw2qijYBZadvc1ZiBVkDjNU33tczHei4Y3UmqqvnoQFOGll/gUoSY6y3TFgAA="
       },
       {
         "src": "/images/eventos/edicion-2/ed2-35.webp",
@@ -761,7 +761,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 960,
         "height": 1280,
         "alt": "Momento de DIVERtite picoTEAndo (2ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMABAAA4BaJZACw7D0qmLYtK+gAP22xs1WqpuztRqF9vG3GV8UiD9nVpxSzjYvez+BqHaUKsJgS75xDo3v9IwdsbI6cTCN3/9Drzwsu9zSIYAA"
+        "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoMABAAA4BaJZACw7D0qmLYtQc4AP22xs1WqpuztRqF9vG3FdgECtI+wVtqUkybPBEmATcdNLU5n+0jGrnQNByaAUXRIXnE17yVppoMqOBoAAAA"
       },
       {
         "src": "/images/eventos/edicion-2/ed2-42.webp",
@@ -879,7 +879,7 @@ export const galleryGroups: GalleryGroup[] = [
         "width": 960,
         "height": 1280,
         "alt": "Momento de DIVERtite picoTEAndo (3ª edición) de la Fundación ATYPICAL Py",
-        "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADwAQCdASoMABAAA4BaJbACdADcJxyBoyAA/Ivws8OL5/6o/p/en12p4cgs2RDzMw0P4mkWgZUrfUBHoUVLbjEUmLOoTheEUIhL5243WcBIQxt5pFgpqQ+5YPrwHxrafcsxJsm0u9gMP2vlXPXTE/tHeMbLJpFnwAA="
+        "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAQCdASoMABAAA4BaJbACdADcDoIkFAAA/Ivws8OL5/6o/p/ewMXt4Lu7DkQ8zMND+JpFoILDEEoERE+KyxgbrzTeq0eFy/ySHwExneNW0SSaNixu+RRhLBezDOHniuby7CRfIp8qrP1sxBQnBp/knQlg4xCpPgAAAA=="
       },
       {
         "src": "/images/eventos/edicion-3/ed3-02.webp",

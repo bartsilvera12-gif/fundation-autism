@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { galleryGroups, type GalleryPhoto } from "@/content/gallery";
 import { gallerySection } from "@/content/site";
 import { fetchGalleryGroups } from "@/lib/data";
-import { interleaveGroups } from "@/lib/photos";
+import { interleaveGroups, thumbOf } from "@/lib/photos";
 import { Reveal } from "@/components/ui/reveal";
 import { PhotoMarquee } from "@/components/ui/photo-marquee";
 
@@ -125,7 +125,7 @@ export function Gallery() {
                     style={{ aspectRatio: `${photo.width} / ${photo.height}`, maxWidth: "calc(100vw - 2.5rem)" }}
                   >
                     <Image
-                      src={photo.src}
+                      src={thumbOf(photo.src)}
                       alt={photo.alt}
                       fill
                       sizes="(max-width: 640px) 90vw, 400px"

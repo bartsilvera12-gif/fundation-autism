@@ -214,8 +214,8 @@
     radial-gradient(44% 52% at 6% 92%, rgba(150, 196, 70, 0.20), transparent 62%),
     radial-gradient(38% 46% at 52% 48%, rgba(250, 205, 90, 0.16), transparent 64%);
   background-size: 170% 170%;
-  animation: mesh-move 32s ease-in-out infinite;
-  will-change: background-position;
+  /* Estático a propósito: animar background-position en cada sección repinta
+     todo el fondo en cada frame y vuelve pesada la página. */
 }
 /* En modo oscuro los blobs quedan como glows tenues sobre el fondo navy */
 .dark .mesh-animated {

@@ -4,6 +4,7 @@ import Image from "next/image";
 import type { GalleryPhoto } from "@/content/gallery";
 import { usePrefersReducedMotion } from "@/lib/motion";
 import { cn } from "@/lib/cn";
+import { thumbOf } from "@/lib/photos";
 
 /**
  * Tira de fotos en movimiento continuo (marquee CSS). Pausable al hover.
@@ -61,7 +62,7 @@ export function PhotoMarquee({
           };
           const inner = (
             <Image
-              src={photo.src}
+              src={thumbOf(photo.src)}
               alt={photo.alt}
               fill
               sizes="360px"
