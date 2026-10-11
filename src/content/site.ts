@@ -12,7 +12,7 @@ export const site = {
     "Visibilizamos, valoramos y respetamos las diferentes condiciones neurodivergentes. Porque un diagnóstico no es un pronóstico de vida.",
   description:
     "ONG paraguaya sin fines de lucro que visibiliza, valora y respeta las condiciones neurodivergentes, ofreciendo apoyo emocional y terapéutico a familias.",
-  url: "https://atypical.org.py",
+  url: "https://fundacionatypical.org",
   locale: "es-PY",
   whatsapp: {
     number: "+595 983 982188",

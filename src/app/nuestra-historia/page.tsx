@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     "La historia de la Fundación ATYPICAL Py: un viaje que nació del amor, la escucha y la comunidad para acompañar a familias neurodivergentes en Paraguay.",
   alternates: { canonical: "/nuestra-historia" },
   openGraph: {
+    images: [{ url: "/images/brand/og.jpg", width: 1200, height: 630 }],
     title: `Nuestra historia · ${site.shortName}`,
     description: historyPage.lead,
     url: `${site.url}/nuestra-historia`,
