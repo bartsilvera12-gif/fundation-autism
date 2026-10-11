@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: board.lead,
   alternates: { canonical: "/comision" },
   openGraph: {
-    images: [{ url: "/images/brand/og.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/images/brand/og.jpg", width: 1200, height: 1200 }],
     title: `${board.kicker} · ${site.shortName}`,
     description: board.lead,
     url: `${site.url}/comision`,

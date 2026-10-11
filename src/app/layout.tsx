@@ -54,13 +54,13 @@ export const metadata: Metadata = {
       {
         url: "/images/brand/og.jpg",
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: site.legalName,
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: site.legalName,
     description: site.description,
     images: ["/images/brand/og.jpg"],

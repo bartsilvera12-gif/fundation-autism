@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: divertite.galleryLead,
   alternates: { canonical: "/divertite-picoteando" },
   openGraph: {
-    images: [{ url: "/images/brand/og.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/images/brand/og.jpg", width: 1200, height: 1200 }],
     title: `${divertite.galleryTitle}`,
     description: divertite.galleryLead,
     url: `${site.url}/divertite-picoteando`,
