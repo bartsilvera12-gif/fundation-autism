@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: activities.lead,
   alternates: { canonical: "/actividades" },
   openGraph: {
-    images: [{ url: "/images/brand/og.jpg", width: 1200, height: 1200 }],
+    images: [{ url: "/images/brand/og.jpg", width: 600, height: 600 }],
     title: `${activities.title} · ${site.shortName}`,
     description: activities.lead,
     url: `${site.url}/actividades`,
